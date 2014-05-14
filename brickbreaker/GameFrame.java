@@ -11,14 +11,32 @@ import javax.swing.*;
 
 import static brickbreaker.BrickBreaker.*;
 
+/**
+ * The frame that the game is rendered in
+ * @author Cole
+ */
 public class GameFrame extends JFrame {
     
+    /**
+     * The minimum an X value can be
+     */
     private final static int xMin = 20;
+    
+    /**
+     * The maximum an X value can be
+     */
     private final static int xMax = 620;
     
+    /**
+     * The minimum a Y value can be
+     */
     private final static int yMin = 40;
+    
+    /**
+     * The maximum a Y value can be
+     */
     private final static int yMax = 460;
-	
+    
     public GameFrame() {
 		
         setSize(640,480);
@@ -53,24 +71,40 @@ public class GameFrame extends JFrame {
         
     }
     
+    /**
+     * Get the minimum X value
+     * @return xMin
+     */
     public int getXmin() {
         
         return xMin;
         
     }
     
+    /**
+     * Get the maximum X value
+     * @return xMax
+     */
     public int getXmax() {
         
         return xMax;
         
     }
     
+    /**
+     * Get the minimum Y value
+     * @return yMin
+     */
     public int getYmin() {
         
         return yMin;
         
     }
     
+    /**
+     * Get the maximum Y value
+     * @return yMax
+     */
     public int getYmax() {
         
         return yMax;

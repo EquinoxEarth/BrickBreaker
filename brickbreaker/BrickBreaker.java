@@ -14,6 +14,9 @@ import javax.swing.*;
  */
 public class BrickBreaker {
     
+    /**
+     * The ball that is used in the game
+     */
     public static Ball ball = new Ball(320, 240, 50, 5);
     
     /**
@@ -52,6 +55,11 @@ public class BrickBreaker {
         
     }
     
+    /**
+     * Checks if the ball has hit the walls of the playing field
+     * @param ball is the ball that is checked
+     * @param game is the frame the ball is on
+     */
     public static void checkLines(Ball ball, GameFrame game) {
         
         if ((ball.x - ball.radius) <= (game.getXmin() - 50) || (ball.x + ball.radius) >= game.getXmax())
@@ -70,6 +78,10 @@ public class BrickBreaker {
         
     }
     
+    /**
+     * Sleeps the thread for the defined amount of ms
+     * @param ms 
+     */
     public static void Sleep(int ms) {
         
         // Because there's no other way to make smooth animation
