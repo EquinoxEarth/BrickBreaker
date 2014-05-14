@@ -36,6 +36,7 @@ public class BrickBreaker {
                 while (true)
                 {
                     
+                    // Move the ball
                     ball.setX(ball.getX() + ball.getXSpeed());
                     ball.setY(ball.getY() + ball.getYSpeed());
                     
@@ -43,6 +44,7 @@ public class BrickBreaker {
                     
                     checkLines(ball, game);
                     
+                    // Redraw the screen
                     game.repaint();
                     
                 }
@@ -51,7 +53,26 @@ public class BrickBreaker {
             
         });
         
+        // Input Thread
+        Thread inputThread = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                
+                while (true)
+                {
+                    
+                    //TODO: Code the input listener
+                    
+                    Sleep(1000);
+                    
+                }
+                
+            }
+        });
+        
         paintThread.start();
+        inputThread.start();
         
     }
     
