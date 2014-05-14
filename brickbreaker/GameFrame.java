@@ -59,15 +59,17 @@ public class GameFrame extends JFrame {
         g.drawLine(xMin, yMin, xMin, yMax);
         g.drawLine(xMax, yMin, xMax, yMax);
         
+        // Draw the ball
         g.setColor(Color.red);
-        g.drawOval(ball.x, ball.y, ball.radius, ball.radius);
-        g.fillOval(ball.x, ball.y, ball.radius, ball.radius);
+        g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
+        g.fillOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
         Sleep(50);
         
+        // Erase the balls last position
         g.setColor(Color.white);
-        g.drawOval(ball.x, ball.y, ball.radius, ball.radius);
-        g.fillOval(ball.x, ball.y, ball.radius, ball.radius);
+        g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
+        g.fillOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
     }
     

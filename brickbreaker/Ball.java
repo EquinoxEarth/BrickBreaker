@@ -11,27 +11,27 @@ public class Ball {
     /**
      * X Coordinate of the ball
      */
-    public int x;
+    private int x;
 	
     /**
      * Y Coordinate of the ball
      */
-    public int y;
+    private int y;
 	
     /**
      * Radius of the ball
      */
-    public int radius;
+    private int radius;
 	
     /**
      * X Speed of the ball
      */
-    public int xSpeed;
+    private int xSpeed;
 	
     /**
      * Y Speed of the ball
      */
-    public int ySpeed;
+    private int ySpeed;
     
     /**
      * Create a ball with the defined field values
@@ -48,6 +48,106 @@ public class Ball {
 	this.xSpeed = speed;
 	this.ySpeed = speed;
 	
+    }
+    
+    /**
+     * Returns the balls X coordinate
+     * @return 
+     */
+    public int getX() {
+        
+        return this.x;
+        
+    }
+    
+    /**
+     * Sets the balls X coordinate
+     * @param x 
+     */
+    public void setX(int x) {
+        
+        this.x = x;
+        
+    }
+    
+    /**
+     * Returns the balls Y coordinate
+     * @return 
+     */
+    public int getY() {
+        
+        return this.y;
+        
+    }
+    
+    /**
+     * Sets the balls Y coordinate
+     * @param y 
+     */
+    public void setY(int y) {
+        
+        this.y = y;
+        
+    }
+    
+    /**
+     * Returns the balls radius
+     * @return 
+     */
+    public int getRadius() {
+        
+        return this.radius;
+        
+    }
+    
+    /**
+     * Sets the balls radius
+     * @param radius 
+     */
+    public void setRadius(int radius) {
+        
+        this.radius = radius;
+        
+    }
+    
+    /**
+     * Returns the balls X Speed factor
+     * @return 
+     */
+    public int getXSpeed() {
+        
+        return this.xSpeed;
+        
+    }
+    
+    /**
+     * Sets the balls X Speed factor
+     * @param speed 
+     */
+    public void setXSpeed(int speed) {
+        
+        this.xSpeed = speed;
+        
+    }
+    
+    /**
+     * Returns the balls Y Speed factor
+     * @return 
+     */
+    public int getYSpeed() {
+        
+        return this.ySpeed;
+        
+    }
+    
+    /**
+     * Sets the balls Y Speed factor
+     * @param speed 
+     */
+    public void setYSpeed(int speed) {
+        
+        this.ySpeed = speed;
+        
     }
 	
 }

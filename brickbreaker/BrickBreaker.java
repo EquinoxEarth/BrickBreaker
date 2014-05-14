@@ -36,8 +36,8 @@ public class BrickBreaker {
                 while (true)
                 {
                     
-                    ball.x += ball.xSpeed;
-                    ball.y += ball.ySpeed;
+                    ball.setX(ball.getX() + ball.getXSpeed());
+                    ball.setY(ball.getY() + ball.getYSpeed());
                     
                     Sleep(50);
                     
@@ -62,17 +62,17 @@ public class BrickBreaker {
      */
     public static void checkLines(Ball ball, GameFrame game) {
         
-        if ((ball.x - ball.radius) <= (game.getXmin() - 50) || (ball.x + ball.radius) >= game.getXmax())
+        if ((ball.getX() - ball.getRadius()) <= (game.getXmin() - 50) || (ball.getX() + ball.getRadius()) >= game.getXmax())
             {
                 
-                ball.xSpeed = -(ball.xSpeed);
+                ball.setXSpeed(-(ball.getXSpeed()));
                 
             }
             
-            if ((ball.y - ball.radius) <= (game.getYmin() - 50) || (ball.y + ball.radius) >= game.getYmax())
+            if ((ball.getY() - ball.getRadius()) <= (game.getYmin() - 50) || (ball.getY() + ball.getRadius()) >= game.getYmax())
             {
                 
-                ball.ySpeed = -(ball.ySpeed);
+                ball.setYSpeed(-(ball.getYSpeed()));
                 
             }
         
