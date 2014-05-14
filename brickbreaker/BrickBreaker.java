@@ -36,15 +36,7 @@ public class BrickBreaker {
                     ball.x += ball.xSpeed;
                     ball.y += ball.ySpeed;
                     
-                    try {
-                        
-                        Thread.sleep(50);
-                        
-                    } catch (InterruptedException e) {
-                        
-                        e.printStackTrace();
-                        
-                    }
+                    Sleep(50);
                     
                     checkLines(ball, game);
                     
@@ -75,6 +67,21 @@ public class BrickBreaker {
                 ball.ySpeed = -(ball.ySpeed);
                 
             }
+        
+    }
+    
+    public static void Sleep(int ms) {
+        
+        // Because there's no other way to make smooth animation
+        try {
+            
+            Thread.sleep(ms);
+            
+        } catch (InterruptedException e) {
+            
+            e.printStackTrace();
+            
+        }
         
     }
     

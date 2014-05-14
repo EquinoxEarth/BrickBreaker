@@ -9,7 +9,7 @@ package brickbreaker;
 import java.awt.*;
 import javax.swing.*;
 
-import static brickbreaker.BrickBreaker.ball;
+import static brickbreaker.BrickBreaker.*;
 
 public class GameFrame extends JFrame {
     
@@ -45,15 +45,7 @@ public class GameFrame extends JFrame {
         g.drawOval(ball.x, ball.y, ball.radius, ball.radius);
         g.fillOval(ball.x, ball.y, ball.radius, ball.radius);
         
-        try {
-            
-            Thread.sleep(50);
-            
-        } catch (InterruptedException e) {
-            
-            e.printStackTrace();
-            
-        }
+        Sleep(50);
         
         g.setColor(Color.white);
         g.drawOval(ball.x, ball.y, ball.radius, ball.radius);
