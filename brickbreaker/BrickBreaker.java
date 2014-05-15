@@ -23,7 +23,7 @@ public class BrickBreaker extends JFrame {
     /**
      * The paddle that is used in the game
      */
-    public static Paddle paddle = new Paddle(75, 20);
+    public static Paddle paddle = new Paddle(100, 10);
     
     /**
      * The game panel
@@ -33,7 +33,7 @@ public class BrickBreaker extends JFrame {
     public BrickBreaker(String name) {
         
         setTitle(name);
-        setSize(450, 660);
+        setSize(580, 660);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBackground(Color.white);
@@ -69,6 +69,7 @@ public class BrickBreaker extends JFrame {
                     Sleep(25);
                     
                     checkLines(ball, game);
+                    checkPaddle(ball);
                     
                     // Redraw the screen
                     game.repaint();
@@ -90,6 +91,7 @@ public class BrickBreaker extends JFrame {
      */
     public static void checkLines(Ball ball, GamePanel game) {
         
+        // Left and Right
         if ((ball.getX() - ball.getRadius()) <= (game.getXmin() - ball.getRadius()))
         {
             
@@ -101,7 +103,8 @@ public class BrickBreaker extends JFrame {
             
         }
         
-        if ((ball.getY() - ball.getRadius()) <= game.getYmin() - ball.getRadius())
+        // Top and Bottom
+        if ((ball.getY() - ball.getRadius()) <= game.getYmin() - 35)
         {
             
             ball.setYSpeed(-(ball.getYSpeed()));
@@ -114,9 +117,13 @@ public class BrickBreaker extends JFrame {
         
     }
     
+    /**
+     * Check if the ball has hit the paddle
+     * @param ball 
+     */
     public static void checkPaddle(Ball ball) {
         
-        if ((ball.getY() + ball.getRadius()) <= (15 + paddle.height / 2))
+        if ((ball.getY() + ball.getRadius()) <= (paddle.height + 60))
         {
             
             ball.setYSpeed(-(ball.getYSpeed()));

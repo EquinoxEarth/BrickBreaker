@@ -10,14 +10,16 @@ import static brickbreaker.BrickBreaker.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
 import javax.swing.*;
+import javax.swing.event.MouseInputListener;
 
 
 /**
  * The frame that the game is rendered in
  * @author Cole
  */
-public class GamePanel extends JPanel implements KeyListener {
+public class GamePanel extends JPanel implements KeyListener, MouseInputListener {
     
     /**
      * The minimum an X value can be
@@ -27,7 +29,7 @@ public class GamePanel extends JPanel implements KeyListener {
     /**
      * The maximum an X value can be
      */
-    private final int xMax = 450;
+    private final int xMax = 580;
     
     /**
      * The minimum a Y value can be
@@ -45,6 +47,7 @@ public class GamePanel extends JPanel implements KeyListener {
         //setBounds(0, 0, 450, 660);
         setBackground(Color.black);
         addKeyListener(this);
+        addMouseMotionListener(this);
         setFocusable(true);
         
     }
@@ -123,19 +126,14 @@ public class GamePanel extends JPanel implements KeyListener {
         return yMax;
         
     }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
+    
     @Override
     public void keyPressed(KeyEvent e) {
         
         // Left Arrow
         if (e.getKeyCode() == 37)
         {
-            if ((paddle.x + paddle.width / 2) < this.getWidth() && (paddle.x - paddle.width / 2) > 0)
+            if ((paddle.x + paddle.width / 2) > 0)
             {
                 
                 paddle.x -= 5;
@@ -148,7 +146,7 @@ public class GamePanel extends JPanel implements KeyListener {
             
         } else if (e.getKeyCode() == 39) {  // Right Arrow
             
-            if ((paddle.x - paddle.width / 2) > 0 && (paddle.x + paddle.width / 2) < this.getWidth())
+            if ((paddle.x - paddle.width / 2) < xMax)
             {
                 
                 paddle.x += 5;
@@ -162,9 +160,53 @@ public class GamePanel extends JPanel implements KeyListener {
         }
         
     }
+    
+    @Override
+    public void mouseClicked(MouseEvent e) {
+        
+        // TODO: Launch ball
+        
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+        
+        paddle.x = e.getX() - (paddle.width / 2);
+        
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
 
     @Override
     public void keyReleased(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
         
     }
     
