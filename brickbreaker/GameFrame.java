@@ -53,11 +53,14 @@ public class GameFrame extends JFrame implements KeyListener {
     @Override
     public void paint(Graphics g) {
         
-        // Clear the playing field
+        // Set the color to the background color
         g.setColor(Color.black);
-        g.fillRect(xMin + 1, yMin + 1, (xMax - 1) - xMin, (yMax - 1) - yMin);
         
-        //g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
+        // Clear the area around the paddle
+        //g.fillRect(xMin + 1, yMin + 1, (xMax - 1) - xMin, (yMax - 1) - yMin);
+        
+        // Clear the area around the ball
+        g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
         
         // TODO: Draw the bricks
         
