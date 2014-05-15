@@ -6,16 +6,18 @@
 
 package brickbreaker;
 
+import static brickbreaker.BrickBreaker.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.*;
 
-import static brickbreaker.BrickBreaker.*;
 
 /**
  * The frame that the game is rendered in
  * @author Cole
  */
-public class GameFrame extends JFrame {
+public class GameFrame extends JFrame implements KeyListener {
     
     /**
      * The minimum an X value can be
@@ -44,16 +46,18 @@ public class GameFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBackground(Color.black);
         setLocationRelativeTo(null);
-        setVisible(true);
+        addKeyListener(this);
 		
     }
     
     @Override
     public void paint(Graphics g) {
         
-        // Clear the area around the ball
+        // Clear the playing field
         g.setColor(Color.black);
-        g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
+        g.fillRect(xMin + 1, yMin + 1, (xMax - 1) - xMin, (yMax - 1) - yMin);
+        
+        //g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
         
         // TODO: Draw the bricks
         
@@ -77,7 +81,7 @@ public class GameFrame extends JFrame {
         g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
         // Draw the paddle
-        g.fillRect((this.getWidth() / 2) - (paddle.size / 2), yMax - 40, paddle.size, 15);
+        g.fillRect(paddle.x, yMax - 40, paddle.width, paddle.height);
         
     }
     
@@ -118,6 +122,32 @@ public class GameFrame extends JFrame {
     public int getYmax() {
         
         return yMax;
+        
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+        if (e.getKeyCode() == 37)
+        {
+            
+            paddle.x -= 5;
+            
+        } else if (e.getKeyCode() == 39) {
+            
+            paddle.x += 5;
+            
+        }
+        
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
         
     }
     

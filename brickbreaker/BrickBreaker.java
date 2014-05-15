@@ -6,6 +6,7 @@
 
 package brickbreaker;
 
+import java.awt.event.*;
 import javax.swing.*;
 
 /**
@@ -22,14 +23,21 @@ public class BrickBreaker {
     /**
      * The paddle that is used in the game
      */
-    public static Paddle paddle = new Paddle(75);
+    public static Paddle paddle = new Paddle(75, 15);
+    
+    /**
+     * The game frame
+     */
+    static final GameFrame game = new GameFrame();
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        final GameFrame game = new GameFrame();
+        game.setVisible(true);
+        
+        paddle.x = (game.getWidth() / 2) - (paddle.width / 2);
         
         // Animation Thread
         Thread paintThread = new Thread(new Runnable(){
@@ -57,26 +65,7 @@ public class BrickBreaker {
             
         });
         
-        // Input Thread
-        Thread inputThread = new Thread(new Runnable() {
-            
-            @Override
-            public void run() {
-                
-                while (true)
-                {
-                    
-                    //TODO: Code the input listener
-                    
-                    Sleep(1000);
-                    
-                }
-                
-            }
-        });
-        
         paintThread.start();
-        inputThread.start();
         
     }
     

@@ -13,9 +13,19 @@ package brickbreaker;
 public class Paddle {
     
     /**
-     * The size of the paddle
+     * The X coordinate of the paddle
      */
-    public int size;
+    public int x;
+    
+    /**
+     * The width of the paddle
+     */
+    public int width;
+    
+    /**
+     * The height of the paddle
+     */
+    public int height;
     
     /**
      * Holds whether or not the paddle is sticky
@@ -23,12 +33,19 @@ public class Paddle {
     public boolean sticky = false;
     
     /**
-     * Creates a Paddle with the supplied size
-     * @param size 
+     * Speed that the paddle moves at
      */
-    public Paddle(int size) {
+    public int speed;
+    
+    /**
+     * Creates a Paddle with the supplied width & height
+     * @param width 
+     * @param height 
+     */
+    public Paddle(int width, int height) {
         
-        this.size = size;
+        this.width = width;
+        this.height = height;
         
     }
     
