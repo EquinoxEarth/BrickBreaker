@@ -137,4 +137,12 @@ public class Brick extends Rectangle {
         
     }
     
+    public boolean checkCollision(Ball ball) {
+        
+        // TODO: Code collision for brick
+        
+        return true;
+        
+    }
+    
 }
