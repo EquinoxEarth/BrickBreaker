@@ -46,7 +46,7 @@ public class GamePanel extends JPanel implements KeyListener {
         setBackground(Color.black);
         addKeyListener(this);
         setFocusable(true);
-		
+        
     }
     
     @Override
@@ -80,7 +80,7 @@ public class GamePanel extends JPanel implements KeyListener {
         //g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
         // Draw the paddle
-        g.fillRect(paddle.x, yMax - 40, paddle.width, paddle.height);
+        g.fillRect(paddle.x, yMax - 60, paddle.width, paddle.height);
         
     }
     

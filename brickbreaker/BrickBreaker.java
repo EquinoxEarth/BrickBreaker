@@ -51,7 +51,7 @@ public class BrickBreaker extends JFrame {
         
         gameFrame.add(game);
         
-        paddle.x = (game.getWidth() / 2) - (paddle.width / 2);
+        paddle.x = (gameFrame.getWidth() / 2) - (paddle.width / 2);
         
         // Animation Thread
         Thread paintThread = new Thread(new Runnable(){
