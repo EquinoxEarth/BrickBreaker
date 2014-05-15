@@ -25,7 +25,7 @@ public class GameFrame extends JFrame {
     /**
      * The maximum an X value can be
      */
-    private final static int xMax = 620;
+    private final static int xMax = 430;
     
     /**
      * The minimum a Y value can be
@@ -35,14 +35,14 @@ public class GameFrame extends JFrame {
     /**
      * The maximum a Y value can be
      */
-    private final static int yMax = 460;
+    private final static int yMax = 640;
     
     public GameFrame() {
 		
-        setSize(640,480);
+        setSize(450,660);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBackground(Color.white);
+        setBackground(Color.black);
         setLocationRelativeTo(null);
         setVisible(true);
 		
@@ -51,10 +51,12 @@ public class GameFrame extends JFrame {
     @Override
     public void paint(Graphics g) {
         
-        g.setColor(Color.white);
+        // Clear the area around the ball
+        g.setColor(Color.black);
         g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
         
-        g.setColor(Color.black);
+        // Set the color to white
+        g.setColor(Color.white);
         
         // Horizontal Lines
         g.drawLine(xMin, yMin, xMax, yMin);
@@ -68,8 +70,8 @@ public class GameFrame extends JFrame {
         g.setColor(Color.red);
         g.fillOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
-        // Outline the ball in black
-        g.setColor(Color.black);
+        // Outline the ball in white
+        g.setColor(Color.white);
         g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
     }

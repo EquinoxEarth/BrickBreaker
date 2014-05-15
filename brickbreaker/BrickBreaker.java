@@ -26,7 +26,6 @@ public class BrickBreaker {
         
         final GameFrame game = new GameFrame();
         
-        
         // Animation Thread
         Thread paintThread = new Thread(new Runnable(){
             
