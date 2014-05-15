@@ -52,7 +52,7 @@ public class GameFrame extends JFrame {
     public void paint(Graphics g) {
         
         g.setColor(Color.white);
-        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
         
         g.setColor(Color.black);
         
