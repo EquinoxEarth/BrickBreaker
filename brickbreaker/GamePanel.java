@@ -17,36 +17,35 @@ import javax.swing.*;
  * The frame that the game is rendered in
  * @author Cole
  */
-public class GameFrame extends JFrame implements KeyListener {
+public class GamePanel extends JPanel implements KeyListener {
     
     /**
      * The minimum an X value can be
      */
-    private final static int xMin = 20;
+    private final int xMin = 0;
     
     /**
      * The maximum an X value can be
      */
-    private final static int xMax = 430;
+    private final int xMax = 450;
     
     /**
      * The minimum a Y value can be
      */
-    private final static int yMin = 40;
+    private final int yMin = 40;
     
     /**
      * The maximum a Y value can be
      */
-    private final static int yMax = 640;
+    private final int yMax = 660;
     
-    public GameFrame() {
+    public GamePanel() {
 		
-        setSize(450,660);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //setSize(450,660);
+        //setBounds(0, 0, 450, 660);
         setBackground(Color.black);
-        setLocationRelativeTo(null);
         addKeyListener(this);
+        setFocusable(true);
 		
     }
     
@@ -56,11 +55,13 @@ public class GameFrame extends JFrame implements KeyListener {
         // Set the color to the background color
         g.setColor(Color.black);
         
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        
         // Clear the area around the paddle
         //g.fillRect(xMin + 1, yMin + 1, (xMax - 1) - xMin, (yMax - 1) - yMin);
         
         // Clear the area around the ball
-        g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
+        //g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
         
         // TODO: Draw the bricks
         
@@ -69,11 +70,6 @@ public class GameFrame extends JFrame implements KeyListener {
         
         // Horizontal Lines
         g.drawLine(xMin, yMin, xMax, yMin);
-        g.drawLine(xMin, yMax, xMax, yMax);
-        
-        // Vertical Lines
-        g.drawLine(xMin, yMin, xMin, yMax);
-        g.drawLine(xMax, yMin, xMax, yMax);
         
         // Draw the ball
         g.setColor(Color.red);
@@ -81,7 +77,7 @@ public class GameFrame extends JFrame implements KeyListener {
         
         // Outline the ball in white
         g.setColor(Color.white);
-        g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
+        //g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
         // Draw the paddle
         g.fillRect(paddle.x, yMax - 40, paddle.width, paddle.height);
@@ -139,7 +135,7 @@ public class GameFrame extends JFrame implements KeyListener {
         // Left Arrow
         if (e.getKeyCode() == 37)
         {
-            if ((paddle.x + paddle.width / 2) < xMax && (paddle.x - paddle.width / 2) > (xMin - 50))
+            if ((paddle.x + paddle.width / 2) < this.getWidth() && (paddle.x - paddle.width / 2) > 0)
             {
                 
                 paddle.x -= 5;
@@ -152,7 +148,7 @@ public class GameFrame extends JFrame implements KeyListener {
             
         } else if (e.getKeyCode() == 39) {  // Right Arrow
             
-            if ((paddle.x - paddle.width / 2) > (xMin - 50) && (paddle.x + paddle.width / 2) < xMax)
+            if ((paddle.x - paddle.width / 2) > 0 && (paddle.x + paddle.width / 2) < this.getWidth())
             {
                 
                 paddle.x += 5;

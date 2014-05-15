@@ -6,36 +6,50 @@
 
 package brickbreaker;
 
-import java.awt.event.*;
+import java.awt.*;
 import javax.swing.*;
 
 /**
  *
  * @author Cole
  */
-public class BrickBreaker {
+public class BrickBreaker extends JFrame {
     
     /**
      * The ball that is used in the game
      */
-    public static Ball ball = new Ball(320, 240, 50, 5);
+    public static Ball ball = new Ball(320, 240, 20, 4);
     
     /**
      * The paddle that is used in the game
      */
-    public static Paddle paddle = new Paddle(75, 15);
+    public static Paddle paddle = new Paddle(75, 20);
     
     /**
-     * The game frame
+     * The game panel
      */
-    static final GameFrame game = new GameFrame();
+    static final GamePanel game = new GamePanel();
+    
+    public BrickBreaker(String name) {
+        
+        setTitle(name);
+        setSize(450, 660);
+        setResizable(false);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setBackground(Color.white);
+        setLocationRelativeTo(null);
+        setVisible(true);
+        
+    }
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        game.setVisible(true);
+        BrickBreaker gameFrame = new BrickBreaker("Brick Breaker");
+        
+        gameFrame.add(game);
         
         paddle.x = (game.getWidth() / 2) - (paddle.width / 2);
         
@@ -54,7 +68,7 @@ public class BrickBreaker {
                     
                     Sleep(25);
                     
-                    checkLines(ball);
+                    checkLines(ball, game);
                     
                     // Redraw the screen
                     game.repaint();
@@ -72,23 +86,31 @@ public class BrickBreaker {
     /**
      * Checks if the ball has hit the walls of the playing field
      * @param ball is the ball that is checked
-     * @param game is the frame the ball is on
+     * @param game 
      */
-    public static void checkLines(Ball ball) {
+    public static void checkLines(Ball ball, GamePanel game) {
         
-        if ((ball.getX() - ball.getRadius()) <= (game.getXmin() - 50) || (ball.getX() + ball.getRadius()) >= game.getXmax())
-            {
-                
-                ball.setXSpeed(-(ball.getXSpeed()));
-                
-            }
+        if ((ball.getX() - ball.getRadius()) <= (game.getXmin() - ball.getRadius()))
+        {
             
-            if ((ball.getY() - ball.getRadius()) <= (game.getYmin() - 50) || (ball.getY() + ball.getRadius()) >= game.getYmax())
-            {
-                
-                ball.setYSpeed(-(ball.getYSpeed()));
-                
-            }
+            ball.setXSpeed(-(ball.getXSpeed()));
+            
+        } else if ((ball.getX() + ball.getRadius() >= game.getXmax() - 6)) {
+            
+            ball.setXSpeed(-(ball.getXSpeed()));
+            
+        }
+        
+        if ((ball.getY() - ball.getRadius()) <= game.getYmin() - ball.getRadius())
+        {
+            
+            ball.setYSpeed(-(ball.getYSpeed()));
+            
+        } else if ((ball.getY() + ball.getRadius()) >= game.getYmax()) {
+            
+            ball.setYSpeed(-(ball.getYSpeed()));
+            
+        }
         
     }
     
