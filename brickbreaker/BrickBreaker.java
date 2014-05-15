@@ -20,6 +20,11 @@ public class BrickBreaker {
     public static Ball ball = new Ball(320, 240, 50, 5);
     
     /**
+     * The paddle that is used in the game
+     */
+    public static Paddle paddle = new Paddle(75);
+    
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {

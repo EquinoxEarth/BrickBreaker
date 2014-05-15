@@ -55,6 +55,8 @@ public class GameFrame extends JFrame {
         g.setColor(Color.black);
         g.fillOval(ball.getX()-ball.getRadius()/2, ball.getY()-ball.getRadius()/2, ball.getRadius() * 2, ball.getRadius() * 2);
         
+        // TODO: Draw the bricks
+        
         // Set the color to white
         g.setColor(Color.white);
         
@@ -73,6 +75,9 @@ public class GameFrame extends JFrame {
         // Outline the ball in white
         g.setColor(Color.white);
         g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
+        
+        // Draw the paddle
+        g.fillRect((this.getWidth() / 2) - (paddle.size / 2), yMax - 40, paddle.size, 15);
         
     }
     
