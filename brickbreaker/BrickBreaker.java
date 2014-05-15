@@ -40,7 +40,7 @@ public class BrickBreaker {
                     ball.setX(ball.getX() + ball.getXSpeed());
                     ball.setY(ball.getY() + ball.getYSpeed());
                     
-                    Sleep(50);
+                    Sleep(25);
                     
                     checkLines(ball, game);
                     

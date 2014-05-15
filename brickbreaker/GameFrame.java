@@ -51,6 +51,11 @@ public class GameFrame extends JFrame {
     @Override
     public void paint(Graphics g) {
         
+        g.setColor(Color.white);
+        g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        
+        g.setColor(Color.black);
+        
         // Horizontal Lines
         g.drawLine(xMin, yMin, xMax, yMin);
         g.drawLine(xMin, yMax, xMax, yMax);
@@ -61,15 +66,11 @@ public class GameFrame extends JFrame {
         
         // Draw the ball
         g.setColor(Color.red);
-        g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         g.fillOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
-        Sleep(50);
-        
-        // Erase the balls last position
-        g.setColor(Color.white);
+        // Outline the ball in black
+        g.setColor(Color.black);
         g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
-        g.fillOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
     }
     
