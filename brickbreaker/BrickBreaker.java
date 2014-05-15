@@ -54,7 +54,7 @@ public class BrickBreaker {
                     
                     Sleep(25);
                     
-                    checkLines(ball, game);
+                    checkLines(ball);
                     
                     // Redraw the screen
                     game.repaint();
@@ -74,7 +74,7 @@ public class BrickBreaker {
      * @param ball is the ball that is checked
      * @param game is the frame the ball is on
      */
-    public static void checkLines(Ball ball, GameFrame game) {
+    public static void checkLines(Ball ball) {
         
         if ((ball.getX() - ball.getRadius()) <= (game.getXmin() - 50) || (ball.getX() + ball.getRadius()) >= game.getXmax())
             {
@@ -89,6 +89,17 @@ public class BrickBreaker {
                 ball.setYSpeed(-(ball.getYSpeed()));
                 
             }
+        
+    }
+    
+    public static void checkPaddle(Ball ball) {
+        
+        if ((ball.getY() + ball.getRadius()) <= (15 + paddle.height / 2))
+        {
+            
+            ball.setYSpeed(-(ball.getYSpeed()));
+            
+        }
         
     }
     

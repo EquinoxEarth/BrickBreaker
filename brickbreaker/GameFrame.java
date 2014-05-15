@@ -133,14 +133,32 @@ public class GameFrame extends JFrame implements KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         
+        // Left Arrow
         if (e.getKeyCode() == 37)
         {
+            if ((paddle.x + paddle.width / 2) < xMax && (paddle.x - paddle.width / 2) > (xMin - 50))
+            {
+                
+                paddle.x -= 5;
+                
+            } else {
+                
+                return;
+                
+            }
             
-            paddle.x -= 5;
+        } else if (e.getKeyCode() == 39) {  // Right Arrow
             
-        } else if (e.getKeyCode() == 39) {
-            
-            paddle.x += 5;
+            if ((paddle.x - paddle.width / 2) > (xMin - 50) && (paddle.x + paddle.width / 2) < xMax)
+            {
+                
+                paddle.x += 5;
+                
+            } else {
+                
+                return;
+                
+            }
             
         }
         
