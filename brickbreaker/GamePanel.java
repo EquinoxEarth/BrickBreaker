@@ -85,6 +85,8 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         // Draw the paddle
         g.fillRect(paddle.x, yMax - 60, paddle.width, paddle.height);
         
+        g.drawString("Lives:" + lives, 10, 20);
+        
     }
     
     /**

@@ -25,6 +25,8 @@ public class BrickBreaker extends JFrame {
      */
     public static Paddle paddle = new Paddle(100, 10);
     
+    public static int lives = 3;
+    
     /**
      * The game panel
      */
@@ -111,7 +113,25 @@ public class BrickBreaker extends JFrame {
             
         } else if ((ball.getY() + ball.getRadius()) >= game.getYmax()) {
             
-            ball.setYSpeed(-(ball.getYSpeed()));
+            //ball.setYSpeed(-(ball.getYSpeed()));
+            
+            lives -= 1;
+            
+            if (lives == 0)
+            {
+                
+                JOptionPane.showMessageDialog(game, "Game over!");
+            
+                // Ends the program
+                System.exit(0);
+                
+            } else {
+                
+                JOptionPane.showMessageDialog(game, "Try Again");
+                
+                resetBall(ball);
+                
+            }
             
         }
         
@@ -123,12 +143,28 @@ public class BrickBreaker extends JFrame {
      */
     public static void checkPaddle(Ball ball) {
         
+        // Check if the ball has hit the paddle
+        // NEEDS TO BE FIXED
         if ((ball.getY() + ball.getRadius()) <= (paddle.height + 60))
         {
             
             ball.setYSpeed(-(ball.getYSpeed()));
             
         }
+        
+    }
+    
+    /**
+     * Resets the ball back to it's origin
+     * @param ball 
+     */
+    public static void resetBall(Ball ball) {
+        
+        ball.setX(580 / 2);
+        ball.setY(660 / 2);
+        
+        ball.setXSpeed(ball.speed);
+        ball.setYSpeed(ball.speed);
         
     }
     

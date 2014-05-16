@@ -33,6 +33,8 @@ public class Ball {
      */
     private int ySpeed;
     
+    public int speed;
+    
     /**
      * Create a ball with the defined field values
      * @param x is the x position
@@ -45,8 +47,11 @@ public class Ball {
         this.x = x;
 	this.y = y;
 	this.radius = radius;
-	this.xSpeed = speed;
-	this.ySpeed = speed;
+        
+        this.speed = speed;
+        
+	this.xSpeed = this.speed;
+	this.ySpeed = this.speed;
 	
     }
     
