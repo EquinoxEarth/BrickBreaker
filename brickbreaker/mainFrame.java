@@ -1,5 +1,7 @@
 package brickbreaker;
 
+import static brickbreaker.BrickBreaker.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
@@ -7,7 +9,9 @@ import javax.swing.*;
 
 
 public class mainFrame extends JFrame implements ActionListener {
-
+    
+    public boolean startPressed = false;
+    
     JButton start;
     JButton rules;
     JButton options;
@@ -92,7 +96,10 @@ public class mainFrame extends JFrame implements ActionListener {
 	if (e.getSource() == start)
         {
             
+            gameFrame = new GameFrame("Brick Breaker");
+            gameFrame.run();
             
+            this.setVisible(false);
             
 	} else if (e.getSource() == rules) {
 	
@@ -101,7 +108,7 @@ public class mainFrame extends JFrame implements ActionListener {
             
 	} else if(e.getSource() == options) {
             
-            
+            // TODO: Add options screen
             
 	} else if (e.getSource() == exit) {
             
