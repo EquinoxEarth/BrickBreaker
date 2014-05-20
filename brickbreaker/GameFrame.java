@@ -65,7 +65,7 @@ public class GameFrame extends JFrame {
                     ball.setX(ball.getX() + ball.getXSpeed());
                     ball.setY(ball.getY() + ball.getYSpeed());
                     
-                    Sleep(3);
+                    Sleep(5);
                     
                     checkLines(ball, game);
                     checkPaddle(ball);
@@ -103,7 +103,7 @@ public class GameFrame extends JFrame {
         }
         
         // Top and Bottom
-        if ((ball.getY() - ball.getRadius()) <= game.getYmin() - 35)
+        if ((ball.getY() - ball.getRadius()) <= game.getYmin() - 22)
         {
             
             ball.setYSpeed(-(ball.getYSpeed()));

@@ -100,6 +100,7 @@ public class mainFrame extends JFrame implements ActionListener {
             gameFrame.run();
             
             this.setVisible(false);
+            this.dispose();
             
 	} else if (e.getSource() == rules) {
 	
