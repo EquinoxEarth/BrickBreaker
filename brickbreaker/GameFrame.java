@@ -50,7 +50,7 @@ public class GameFrame extends JFrame {
         gameFrame.add(game);
         
         // Set paddle location
-        paddle.x = (gameFrame.getWidth() / 2) - (paddle.width / 2);
+        paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         
         // Animation Thread
         Thread paintThread = new Thread(new Runnable(){
@@ -141,13 +141,36 @@ public class GameFrame extends JFrame {
     public static void checkPaddle(Ball ball) {
         
         // Check if the ball has hit the paddle
-        if ((ball.getY() + ball.getRadius()) == (600))
+        if (ball.getBottom() == 600)
         {
             
-            if ((ball.getX() - ball.getRadius()) >= (paddle.x - paddle.width) && (ball.getX() + ball.getRadius()) <= (paddle.x + paddle.width))
+            if (ball.getX() >= paddle.getLeft() && ball.getX() <= paddle.getRight())
             {
                 
                 // Now, we check where the ball hit the paddle
+                // Left Side then Right Side
+                // TODO: Change how much the speed changes based on where the ball hits
+                if (ball.getX() < paddle.getX())
+                {
+                    
+                    if (ball.getXSpeed() == 1)
+                    {
+                        
+                        ball.setXSpeed(-1);
+                        
+                    }
+                    
+                } else if (ball.getX() > paddle.getX()) {
+                    
+                    if (ball.getXSpeed() == -1)
+                    {
+                        
+                        ball.setXSpeed(1);
+                        
+                    }
+                    
+                }
+                
                 ball.setYSpeed(-(ball.getYSpeed()));
                 
             }

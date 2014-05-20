@@ -15,27 +15,27 @@ public class Paddle {
     /**
      * The X coordinate of the paddle
      */
-    public int x;
+    private int x;
     
     /**
      * The width of the paddle
      */
-    public int width;
+    private int width;
     
     /**
      * The height of the paddle
      */
-    public int height;
+    private int height;
     
     /**
      * Holds whether or not the paddle is sticky
      */
-    public boolean sticky = false;
+    private boolean sticky = false;
     
     /**
      * Speed that the paddle moves at
      */
-    public int speed;
+    private int speed;
     
     /**
      * Creates a Paddle with the supplied width & height
@@ -46,6 +46,54 @@ public class Paddle {
         
         this.width = width;
         this.height = height;
+        
+    }
+    
+    public int getX() {
+        
+        return this.x;
+        
+    }
+    
+    public void setX(int x) {
+        
+        this.x = x;
+        
+    }
+    
+    public int getWidth() {
+        
+        return this.width;
+        
+    }
+    
+    public void setWidth(int width) {
+        
+        this.width = width;
+        
+    }
+    
+    public int getHeight() {
+        
+        return this.height;
+        
+    }
+    
+    public void setHeight(int height) {
+        
+        this.height = height;
+        
+    }
+    
+    public int getLeft() {
+        
+        return this.x - (this.width / 2);
+        
+    }
+    
+    public int getRight() {
+        
+        return this.x + (this.width / 2);
         
     }
     

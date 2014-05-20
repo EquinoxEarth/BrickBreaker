@@ -22,6 +22,14 @@ public class Ball {
      * Radius of the ball
      */
     private int radius;
+    
+    private int left;
+    
+    private int right;
+    
+    private int top;
+    
+    private int bottom;
 	
     /**
      * X Speed of the ball
@@ -155,6 +163,46 @@ public class Ball {
     public void setYSpeed(int speed) {
         
         this.ySpeed = speed;
+        
+    }
+    
+    /**
+     * Return the left side of the ball
+     * @return 
+     */
+    public int getLeft() {
+        
+        return (this.x - this.radius);
+        
+    }
+    
+    /**
+     * Return the right side of the ball
+     * @return 
+     */
+    public int getRight() {
+        
+        return (this.x + this.radius);
+        
+    }
+    
+    /**
+     * Return the top of the ball
+     * @return 
+     */
+    public int getTop() {
+        
+        return (this.y - this.radius);
+        
+    }
+    
+    /**
+     * Return the bottom of the ball
+     * @return 
+     */
+    public int getBottom() {
+        
+        return (this.y + this.radius);
         
     }
 	
