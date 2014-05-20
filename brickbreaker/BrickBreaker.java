@@ -13,7 +13,7 @@ import javax.swing.*;
  *
  * @author Cole
  */
-public class BrickBreaker extends JFrame {
+public class BrickBreaker {
     
     /**
      * The ball that is used in the game
@@ -25,31 +25,20 @@ public class BrickBreaker extends JFrame {
      */
     public static Paddle paddle = new Paddle(100, 10);
     
-    public static int lives = 3;
-    
     /**
-     * The game panel
+     * The amount of lives they have left
      */
-    static final GamePanel game = new GamePanel();
-    
-    public BrickBreaker(String name) {
-        
-        setTitle(name);
-        setSize(580, 660);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBackground(Color.white);
-        setLocationRelativeTo(null);
-        setVisible(true);
-        
-    }
+    public static int lives = 3;
     
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        BrickBreaker gameFrame = new BrickBreaker("Brick Breaker");
+        
+        // Start Game
+        GameFrame gameFrame = new GameFrame("Brick Breaker");
+        final GamePanel game = new GamePanel();
         
         gameFrame.add(game);
         
