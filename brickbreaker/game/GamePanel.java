@@ -12,6 +12,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import javax.swing.*;
 import javax.swing.event.MouseInputListener;
 
@@ -50,6 +51,9 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         addKeyListener(this);
         addMouseMotionListener(this);
         setFocusable(true);
+        setCursor(this.getToolkit().createCustomCursor(
+            new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
+            "null"));
         
     }
     
