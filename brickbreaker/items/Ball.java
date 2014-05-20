@@ -22,14 +22,6 @@ public class Ball {
      * Radius of the ball
      */
     private int radius;
-    
-    private int left;
-    
-    private int right;
-    
-    private int top;
-    
-    private int bottom;
 	
     /**
      * X Speed of the ball
