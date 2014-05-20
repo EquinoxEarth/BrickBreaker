@@ -1,5 +1,6 @@
-package brickbreaker;
+package brickbreaker.menu;
 
+import brickbreaker.game.GameFrame;
 import static brickbreaker.BrickBreaker.*;
 
 import java.awt.*;

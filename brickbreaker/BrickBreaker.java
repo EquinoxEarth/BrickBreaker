@@ -6,6 +6,9 @@
 
 package brickbreaker;
 
+import brickbreaker.menu.mainFrame;
+import brickbreaker.game.GameFrame;
+
 /**
  *
  * @author Cole

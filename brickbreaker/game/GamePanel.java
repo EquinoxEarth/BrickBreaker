@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 
-package brickbreaker;
+package brickbreaker.game;
 
-import static brickbreaker.GameFrame.*;
+import static brickbreaker.game.GameFrame.*;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

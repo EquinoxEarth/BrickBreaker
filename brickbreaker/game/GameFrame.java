@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
-package brickbreaker;
+package brickbreaker.game;
 
+import brickbreaker.items.Ball;
+import brickbreaker.items.Paddle;
 import static brickbreaker.BrickBreaker.*;
 
 import java.awt.*;
