@@ -33,6 +33,9 @@ public class Ball {
      */
     private int ySpeed;
     
+    /**
+     * Overall Speed of the ball
+     */
     public int speed;
     
     /**

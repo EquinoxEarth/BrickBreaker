@@ -17,6 +17,21 @@ import javax.swing.*;
  */
 public class GameFrame extends JFrame {
     
+    /**
+     * The ball that is used in the game
+     */
+    public static Ball ball = new Ball(320, 240, 20, 1);
+    
+    /**
+     * The paddle that is used in the game
+     */
+    public static Paddle paddle = new Paddle(100, 10);
+    
+    /**
+     * The amount of lives the player has
+     */
+    public static int lives = 3;
+    
     public GameFrame(String name) {
     
         setTitle(name);
@@ -50,7 +65,7 @@ public class GameFrame extends JFrame {
                     ball.setX(ball.getX() + ball.getXSpeed());
                     ball.setY(ball.getY() + ball.getYSpeed());
                     
-                    Sleep(25);
+                    Sleep(3);
                     
                     checkLines(ball, game);
                     checkPaddle(ball);
@@ -126,11 +141,16 @@ public class GameFrame extends JFrame {
     public static void checkPaddle(Ball ball) {
         
         // Check if the ball has hit the paddle
-        // NEEDS TO BE FIXED
-        if ((ball.getY() + ball.getRadius()) <= (paddle.height + 60))
+        if ((ball.getY() + ball.getRadius()) == (600))
         {
             
-            ball.setYSpeed(-(ball.getYSpeed()));
+            if ((ball.getX() - ball.getRadius()) >= (paddle.x - paddle.width) && (ball.getX() + ball.getRadius()) <= (paddle.x + paddle.width))
+            {
+                
+                // Now, we check where the ball hit the paddle
+                ball.setYSpeed(-(ball.getYSpeed()));
+                
+            }
             
         }
         

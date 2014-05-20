@@ -6,9 +6,6 @@
 
 package brickbreaker;
 
-import java.awt.*;
-import javax.swing.*;
-
 /**
  *
  * @author Cole
@@ -16,21 +13,6 @@ import javax.swing.*;
 public class BrickBreaker {
     
     public static GameFrame gameFrame;
-    
-    /**
-     * The ball that is used in the game
-     */
-    public static Ball ball = new Ball(320, 240, 20, 4);
-    
-    /**
-     * The paddle that is used in the game
-     */
-    public static Paddle paddle = new Paddle(100, 10);
-    
-    /**
-     * The amount of lives they have left
-     */
-    public static int lives = 3;
     
     /**
      * @param args the command line arguments
