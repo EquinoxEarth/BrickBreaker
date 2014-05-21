@@ -6,7 +6,7 @@
 
 package brickbreaker;
 
-import brickbreaker.menu.mainFrame;
+import brickbreaker.menu.menuMain;
 import brickbreaker.game.GameFrame;
 
 /**
@@ -23,7 +23,7 @@ public class BrickBreaker {
     public static void main(String[] args) {
         
         // Start Menu
-        mainFrame menu = new mainFrame();
+        menuMain menu = new menuMain();
         
     }
     
