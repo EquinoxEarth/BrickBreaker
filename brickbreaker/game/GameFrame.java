@@ -119,14 +119,14 @@ public class GameFrame extends JFrame {
             if (lives == 0)
             {
                 
-                JOptionPane.showMessageDialog(game, "Game over!");
+                JOptionPane.showMessageDialog(game, "Game over!", "Brick Breaker", JOptionPane.ERROR_MESSAGE);
             
                 // Ends the program
                 System.exit(0);
                 
             } else {
                 
-                JOptionPane.showMessageDialog(game, "Try Again");
+                JOptionPane.showMessageDialog(game, "Try Again", "Brick Breaker", JOptionPane.ERROR_MESSAGE);
                 
                 resetBall(ball);
                 
