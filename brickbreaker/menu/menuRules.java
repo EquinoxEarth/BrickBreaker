@@ -16,8 +16,11 @@ public class menuRules extends javax.swing.JFrame {
      * Creates new form menuRules
      */
     public menuRules() {
+        
         initComponents();
+        setLocationRelativeTo(null);
         setVisible(true);
+        
     }
 
     /**
@@ -48,12 +51,14 @@ public class menuRules extends javax.swing.JFrame {
         titleLabel.setText("How to Play");
         titleLabel.setToolTipText("");
 
+        rulesTextArea.setEditable(false);
         rulesTextArea.setBackground(new java.awt.Color(0, 0, 0));
         rulesTextArea.setColumns(20);
         rulesTextArea.setForeground(new java.awt.Color(51, 255, 0));
         rulesTextArea.setLineWrap(true);
         rulesTextArea.setRows(5);
         rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks on the screen without losing all your lives.");
+        rulesTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(rulesTextArea);
 
         backButton.setBackground(new java.awt.Color(0, 255, 255));
@@ -73,10 +78,9 @@ public class menuRules extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(backButton))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(backButton)
+                        .addGap(0, 332, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
