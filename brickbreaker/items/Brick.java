@@ -45,6 +45,11 @@ public class Brick extends Rectangle {
     public final static double height = 5;
     
     /**
+     * True if the brick has been destroyed
+     */
+    private boolean destroyed;
+    
+    /**
      * Creates a brick at the specified coordinates
      * @param x
      * @param y 
@@ -67,11 +72,10 @@ public class Brick extends Rectangle {
     
     /**
      * Sets the health of the brick
-     * @param hp 
      */
-    public void setHealth(int hp) {
+    public void decHealth() {
         
-        this.health = hp;
+        this.health -= 1;
         
     }
     
@@ -123,17 +127,25 @@ public class Brick extends Rectangle {
      */
     public Color getColor() {
         
-        return this.color;
-        
-    }
-    
-    /**
-     * Sets the Color of the brick
-     * @param color 
-     */
-    public void setColor(Color color) {
-        
-        this.color = color;
+        // We need to check what the health of the brick is
+        if (this.health == 1)
+        {
+            
+            return Color.red;
+            
+        } else if (this.health == 2) {
+            
+            return Color.orange;
+            
+        } else if (this.health == 3) {
+            
+            return Color.yellow;
+            
+        } else {
+            
+            return Color.gray;
+            
+        }
         
     }
     

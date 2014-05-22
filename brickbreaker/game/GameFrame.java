@@ -6,9 +6,10 @@
 
 package brickbreaker.game;
 
-import brickbreaker.items.Ball;
-import brickbreaker.items.Paddle;
+import brickbreaker.items.*;
+import brickbreaker.powerups.*;
 import static brickbreaker.BrickBreaker.*;
+import static brickbreaker.game.GameLevel.brickList;
 
 import java.awt.*;
 import javax.swing.*;
