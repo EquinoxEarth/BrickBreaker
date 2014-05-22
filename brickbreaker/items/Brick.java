@@ -12,7 +12,7 @@ import java.awt.*;
  * The brick object
  * @author Cole
  */
-public class Brick extends Rectangle {
+public class Brick {
     
     /**
      * Hit points left on the brick
@@ -27,22 +27,22 @@ public class Brick extends Rectangle {
     /**
      * The X coordinate of the brick
      */
-    private double x;
+    private int x;
     
     /**
      * The Y coordinate of the brick
      */
-    private double y;
+    private int y;
     
     /**
      * Width of the brick
      */
-    public final static double width = 15;
+    public final static int width = 15;
     
     /**
      * Height of the brick
      */
-    public final static double height = 5;
+    public final static int height = 5;
     
     /**
      * True if the brick has been destroyed
@@ -83,8 +83,7 @@ public class Brick extends Rectangle {
      * Returns the X coordinate of the brick
      * @return 
      */
-    @Override
-    public double getX() {
+    public int getX() {
         
         return this.x;
         
@@ -104,8 +103,7 @@ public class Brick extends Rectangle {
      * Returns the Y coordinate of the brick
      * @return 
      */
-    @Override
-    public double getY() {
+    public int getY() {
         
         return this.y;
         
@@ -118,6 +116,30 @@ public class Brick extends Rectangle {
     public void setY(int y) {
         
         this.y = y;
+        
+    }
+    
+    public int getLeft() {
+        
+        return (this.x - (this.width / 2));
+        
+    }
+    
+    public int getRight() {
+        
+        return (this.x + (this.width / 2));
+        
+    }
+    
+    public int getTop() {
+        
+        return (this.y - (this.height / 2));
+        
+    }
+    
+    public int getBottom() {
+        
+        return (this.y + (this.height / 2));
         
     }
     
