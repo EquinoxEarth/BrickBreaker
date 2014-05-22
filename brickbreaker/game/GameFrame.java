@@ -48,6 +48,7 @@ public class GameFrame extends JFrame {
     
     public void run() {
         
+        // Set up Game panel
         final GamePanel game = new GamePanel();
         gameFrame.add(game);
         
