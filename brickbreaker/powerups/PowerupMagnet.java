@@ -17,7 +17,6 @@ public class PowerupMagnet extends Powerup {
         this.name = "Magnet";
         this.x = x;
         this.y = y;
-        this.duration = duration;
         
     }
     

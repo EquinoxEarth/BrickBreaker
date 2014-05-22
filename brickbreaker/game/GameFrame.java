@@ -82,6 +82,7 @@ public class GameFrame extends JFrame {
             
         });
         
+        // Powerup Thread
         Thread powerupThread = new Thread(new Runnable() {
             
             @Override

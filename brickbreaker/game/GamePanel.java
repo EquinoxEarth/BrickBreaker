@@ -6,6 +6,8 @@
 
 package brickbreaker.game;
 
+import brickbreaker.items.*;
+import brickbreaker.powerups.*;
 import static brickbreaker.game.GameFrame.*;
 
 import java.awt.*;
