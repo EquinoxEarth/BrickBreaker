@@ -13,18 +13,70 @@ package brickbreaker.powerups;
 public class Powerup {
     
     /**
+     * Name of the powerup
+     */
+    protected String name;
+    
+    /**
      * X coordinate of the powerup as it falls
      */
-    private int x;
+    protected int x;
     
     /**
      * Y coordinate of the powerup as it falls
      */
-    private int y;
+    protected int y;
     
     /**
      * Duration of the powerup
      */
-    private double duration;
+    protected double duration;
+    
+    /**
+     * Set to true if the powerup is active
+     */
+    protected boolean active;
+    
+    public String getName() {
+        
+        return this.name;
+        
+    }
+    
+    public int getX() {
+        
+        return this.x;
+        
+    }
+    
+    public void setX(int x) {
+        
+        this.x = x;
+        
+    }
+    
+    public int getY() {
+        
+        return this.y;
+        
+    }
+    
+    public void setY(int y) {
+        
+        this.y = y;
+        
+    }
+    
+    public double getDuration() {
+        
+        return this.duration;
+        
+    }
+    
+    public void decDuration() {
+        
+        
+        
+    }
     
 }

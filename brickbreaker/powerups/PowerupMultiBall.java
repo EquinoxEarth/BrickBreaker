@@ -12,9 +12,12 @@ package brickbreaker.powerups;
  */
 public class PowerupMultiBall extends Powerup {
     
-    public PowerupMultiBall(int x, int y) {
+    public PowerupMultiBall(int x, int y, double duration) {
         
-        // TODO: Code constructor
+        this.name = "Multi-Ball";
+        this.x = x;
+        this.y = y;
+        this.duration = duration;
         
     }
     

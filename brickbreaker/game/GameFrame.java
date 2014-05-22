@@ -82,6 +82,23 @@ public class GameFrame extends JFrame {
             
         });
         
+        Thread powerupThread = new Thread(new Runnable() {
+            
+            @Override
+            public void run() {
+                
+                while (true)
+                {
+                    
+                    // TODO: Powerup code here
+                    // This thread will count down the duration of the powerup in seconds, seperate from the drawing thread
+                    
+                }
+                
+            }
+            
+        });
+        
         paintThread.start();
         
     }

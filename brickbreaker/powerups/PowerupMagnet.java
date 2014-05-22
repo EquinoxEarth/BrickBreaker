@@ -12,9 +12,12 @@ package brickbreaker.powerups;
  */
 public class PowerupMagnet extends Powerup {
     
-    public PowerupMagnet(int x, int y) {
+    public PowerupMagnet(int x, int y, double duration) {
         
-        // TODO: Code constructor
+        this.name = "Magnet";
+        this.x = x;
+        this.y = y;
+        this.duration = duration;
         
     }
     
