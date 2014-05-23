@@ -35,10 +35,31 @@ public class GameFrame extends JFrame {
      */
     public static int lives = 3;
     
+    /**
+     * The minimum an X value can be
+     */
+    public static final int xMin = 0;
+    
+    /**
+     * The maximum an X value can be
+     */
+    public static final int xMax = 880;
+    
+    /**
+     * The minimum a Y value can be
+     */
+    public static final int yMin = 40;
+    
+    /**
+     * The maximum a Y value can be
+     */
+    public static final int yMax = 660;
+    
+    
     public GameFrame(String name) {
     
         setTitle(name);
-        setSize(580, 660);
+        setSize(xMax, yMax);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBackground(Color.white);
@@ -94,6 +115,7 @@ public class GameFrame extends JFrame {
                     
                     // TODO: Powerup code here
                     // This thread will count down the duration of the powerup in seconds, seperate from the drawing thread
+                    Sleep(100);
                     
                 }
                 
@@ -166,7 +188,7 @@ public class GameFrame extends JFrame {
         if (ball.getBottom() == 600)
         {
             
-            if (ball.getX() >= paddle.getLeft() && ball.getX() <= paddle.getRight())
+            if (ball.getX() >= paddle.getLeft() - 5 && ball.getX() <= paddle.getRight())
             {
                 
                 // Now, we check where the ball hit the paddle

@@ -25,26 +25,6 @@ import javax.swing.event.MouseInputListener;
  */
 public class GamePanel extends JPanel implements KeyListener, MouseInputListener {
     
-    /**
-     * The minimum an X value can be
-     */
-    private final int xMin = 0;
-    
-    /**
-     * The maximum an X value can be
-     */
-    private final int xMax = 580;
-    
-    /**
-     * The minimum a Y value can be
-     */
-    private final int yMin = 40;
-    
-    /**
-     * The maximum a Y value can be
-     */
-    private final int yMax = 660;
-    
     public GamePanel() {
 		
         //setSize(450,660);
@@ -81,7 +61,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         
         // Outline the ball in white
         g.setColor(Color.white);
-        //g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
+        g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
         // Draw the paddle
         g.fillRect(paddle.getLeft(), yMax - 60, paddle.getWidth(), paddle.getHeight());
