@@ -171,6 +171,18 @@ public class Brick {
         
     }
     
+    public void Destroy() {
+        
+        this.destroyed = true;
+        
+    }
+    
+    public boolean isDestroyed() {
+        
+        return this.destroyed;
+        
+    }
+    
     public boolean checkCollision(Ball ball) {
         
         // TODO: Code collision for brick
