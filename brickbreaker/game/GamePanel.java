@@ -55,16 +55,16 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         
         // Draw the ball
         g.setColor(Color.red);
-        g.fillOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
+        g.fillOval(ball.getX() - ball.getRadius(), ball.getY() - ball.getRadius(), ball.getRadius(), ball.getRadius());
+        g.drawOval(ball.getX() - ball.getRadius(), ball.getY() - ball.getRadius(), ball.getRadius(), ball.getRadius());
         
         // Outline the ball in white
         g.setColor(Color.white);
-        g.drawOval(ball.getX(), ball.getY(), ball.getRadius(), ball.getRadius());
         
         // Draw the paddle
         g.fillRect(paddle.getLeft(), yMax - 60, paddle.getWidth(), paddle.getHeight());
         
-        g.drawString("Lives:" + lives, 10, 20);
+        g.drawString("Lives:" + lives, 10, 25);
         
     }
     
@@ -117,7 +117,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
             if (paddle.getLeft() > 0)
             {
                 
-                paddle.setX(paddle.getX() - 5);
+                paddle.setX(paddle.getX() - 15);
                 
             } else {
                 
@@ -130,7 +130,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
             if (paddle.getRight() < xMax)
             {
                 
-                paddle.setX(paddle.getX() + 5);
+                paddle.setX(paddle.getX() + 15);
                 
             } else {
                 

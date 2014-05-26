@@ -63,7 +63,6 @@ public class GameFrame extends JFrame {
         setSize(xMax, yMax);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBackground(Color.white);
         setLocationRelativeTo(null);
         setVisible(true);
     
@@ -136,24 +135,24 @@ public class GameFrame extends JFrame {
     public static void checkLines(Ball ball, GamePanel game) {
         
         // Left and Right
-        if ((ball.getX() - ball.getRadius()) <= (game.getXmin() - ball.getRadius()))
+        if (ball.getLeft() <= game.getXmin())
         {
             
             ball.setXSpeed(-(ball.getXSpeed()));
             
-        } else if ((ball.getX() + ball.getRadius() >= game.getXmax() - 6)) {
+        } else if (ball.getRight() >= game.getXmax() + 15) {
             
             ball.setXSpeed(-(ball.getXSpeed()));
             
         }
         
         // Top and Bottom
-        if ((ball.getY() - ball.getRadius()) <= game.getYmin() - 22)
+        if (ball.getTop() <= game.getYmin())
         {
             
             ball.setYSpeed(-(ball.getYSpeed()));
             
-        } else if ((ball.getY() + ball.getRadius()) >= game.getYmax()) {
+        } else if (ball.getTop() >= game.getYmax()) {
             
             //ball.setYSpeed(-(ball.getYSpeed()));
             
@@ -186,10 +185,10 @@ public class GameFrame extends JFrame {
     public static void checkPaddle(Ball ball) {
         
         // Check if the ball has hit the paddle
-        if (ball.getBottom() == 600)
+        if (ball.getBottom() == 618)
         {
             
-            if (ball.getX() >= paddle.getLeft() - 5 && ball.getX() <= paddle.getRight())
+            if (ball.getRight() >= paddle.getLeft() && ball.getLeft() <= paddle.getRight())
             {
                 
                 // Now, we check where the ball hit the paddle
