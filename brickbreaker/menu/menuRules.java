@@ -57,7 +57,7 @@ public class menuRules extends javax.swing.JFrame {
         rulesTextArea.setForeground(new java.awt.Color(51, 255, 0));
         rulesTextArea.setLineWrap(true);
         rulesTextArea.setRows(5);
-        rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks on the screen without losing all your lives.");
+        rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks. Once the game starts the ball will start off in the middle of the screen and be launched in a random direction. Then you must use your mouse to move the paddle left and right to keep the ball from falling below the screen. If the ball falls below the screen then you lose 1 life and once all your lives are gone you lose the game. You will start with 3 lives.");
         rulesTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(rulesTextArea);
 
