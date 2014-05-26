@@ -4,17 +4,17 @@
  * and open the template in the editor.
  */
 
-package brickbreaker.powerups;
+package brickbreaker.game.powerups;
 
 /**
- * Spawns multiple balls on the screen
+ * Makes the ball stick to the paddle
  * @author Cole
  */
-public class PowerupMultiBall extends Powerup {
+public class PowerupMagnet extends Powerup {
     
-    public PowerupMultiBall(int x, int y) {
+    public PowerupMagnet(int x, int y, double duration) {
         
-        this.name = "Multi-Ball";
+        this.name = "Magnet";
         this.x = x;
         this.y = y;
         

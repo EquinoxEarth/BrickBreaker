@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package brickbreaker.items;
+package brickbreaker.game.items;
 
 public class Ball {
 	

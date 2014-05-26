@@ -6,8 +6,9 @@
 
 package brickbreaker.game;
 
-import brickbreaker.items.*;
-import brickbreaker.powerups.*;
+import brickbreaker.game.items.Ball;
+import brickbreaker.game.items.Paddle;
+
 import static brickbreaker.BrickBreaker.*;
 import static brickbreaker.game.GameLevel.brickList;
 
