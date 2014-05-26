@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         // Set the color to white
         g.setColor(Color.white);
         
-        // Horizontal Lines
+        // Horizontal Line
         g.drawLine(xMin, yMin, xMax, yMin);
         
         // Draw the ball
