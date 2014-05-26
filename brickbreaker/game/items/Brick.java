@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package brickbreaker.items;
+package brickbreaker.game.items;
 
 import java.awt.*;
 
@@ -168,6 +168,18 @@ public class Brick {
             return Color.gray;
             
         }
+        
+    }
+    
+    public void Destroy() {
+        
+        this.destroyed = true;
+        
+    }
+    
+    public boolean isDestroyed() {
+        
+        return this.destroyed;
         
     }
     

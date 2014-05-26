@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package brickbreaker.items;
+package brickbreaker.game.items;
 
 /**
  * The paddle used to hit the ball

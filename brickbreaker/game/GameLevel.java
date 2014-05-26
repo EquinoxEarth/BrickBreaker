@@ -6,7 +6,7 @@
 
 package brickbreaker.game;
 
-import brickbreaker.items.Brick;
+import brickbreaker.game.items.Brick;
 
 /**
  *
