@@ -200,7 +200,7 @@ public class GameFrame extends JFrame {
                     if (ball.getXSpeed() == 1)
                     {
                         
-                        ball.setXSpeed(-1);
+                        ball.setXSpeed(-ball.getXSpeed());
                         
                     }
                     
@@ -209,7 +209,7 @@ public class GameFrame extends JFrame {
                     if (ball.getXSpeed() == -1)
                     {
                         
-                        ball.setXSpeed(1);
+                        ball.setXSpeed(-ball.getXSpeed());
                         
                     }
                     
