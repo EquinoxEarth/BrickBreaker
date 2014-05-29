@@ -34,14 +34,17 @@ public class menuMain extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+		
+		
+        // Declare Componants
         menuPanel = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         rulesButton = new javax.swing.JButton();
         optionsButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-
+		
+        // Set the window properties
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Menu");
         setAutoRequestFocus(false);
@@ -49,15 +52,18 @@ public class menuMain extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("Main Menu"); // NOI18N
         setResizable(false);
-
+		
+        // Set the panel properties
         menuPanel.setBackground(new java.awt.Color(0, 0, 0));
         menuPanel.setToolTipText(null);
-
+		
+        // Set the label properties
         titleLabel.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 0, 0));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("BRICK BREAKER");
 
+        // Set the start button properties
         startButton.setBackground(new java.awt.Color(255, 0, 0));
         startButton.setText("START");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,6 +72,7 @@ public class menuMain extends javax.swing.JFrame {
             }
         });
 
+        // Set the rules button properties
         rulesButton.setBackground(new java.awt.Color(0, 255, 0));
         rulesButton.setText("RULES");
         rulesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,9 +81,11 @@ public class menuMain extends javax.swing.JFrame {
             }
         });
 
+        // Set the options button properties
         optionsButton.setBackground(new java.awt.Color(255, 255, 0));
         optionsButton.setText("OPTIONS");
 
+        // Set the exit button properties
         exitButton.setBackground(new java.awt.Color(0, 255, 255));
         exitButton.setText("EXIT");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +94,7 @@ public class menuMain extends javax.swing.JFrame {
             }
         });
 
+        // Position things on the panel
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(
