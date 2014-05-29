@@ -40,9 +40,8 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
     @Override
     public void paint(Graphics g) {
         
-        // Set the color to the background color
+        // Clear the Screen
         g.setColor(Color.black);
-        
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
                 
         // TODO: Draw the bricks
@@ -64,6 +63,7 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         // Draw the paddle
         g.fillRect(paddle.getLeft(), yMax - 60, paddle.getWidth(), paddle.getHeight());
         
+        // Draw Lives
         g.drawString("Lives:" + lives, 10, 25);
         
     }
