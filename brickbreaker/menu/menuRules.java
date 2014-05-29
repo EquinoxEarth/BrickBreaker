@@ -46,7 +46,7 @@ public class menuRules extends javax.swing.JFrame {
         jPanel1.setToolTipText(null);
 
         titleLabel.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(255, 0, 0));
+        titleLabel.setForeground(new java.awt.Color(51, 255, 0));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("How to Play");
         titleLabel.setToolTipText("");
