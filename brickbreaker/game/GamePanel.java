@@ -7,10 +7,9 @@
 package brickbreaker.game;
 
 import static brickbreaker.game.GameFrame.*;
+import brickbreaker.game.items.Brick;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
@@ -21,15 +20,15 @@ import javax.swing.event.MouseInputListener;
  * The frame that the game is rendered in
  * @author Cole
  */
-public class GamePanel extends JPanel implements KeyListener, MouseInputListener {
+public class GamePanel extends JPanel implements MouseInputListener {
     
     public GamePanel() {
 		
         //setSize(450,660);
         //setBounds(0, 0, 450, 660);
         setBackground(Color.black);
-        addKeyListener(this);
         addMouseMotionListener(this);
+        addMouseListener(this);
         setFocusable(true);
         setCursor(this.getToolkit().createCustomCursor(
             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
@@ -43,8 +42,18 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         // Clear the Screen
         g.setColor(Color.black);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
+        
+        for (Brick brickList : GameLevel.brickList) {
+            
+            if (!brickList.isDestroyed())
+            {
                 
-        // TODO: Draw the bricks
+                g.setColor(brickList.getColor());
+                g.fillRect(brickList.getLeft(), brickList.getTop(), Brick.width, Brick.height);
+                
+            }
+            
+        }
         
         // Set the color to white
         g.setColor(Color.white);
@@ -68,101 +77,33 @@ public class GamePanel extends JPanel implements KeyListener, MouseInputListener
         
     }
     
-    /**
-     * Get the minimum X value
-     * @return xMin
-     */
-    public int getXmin() {
-        
-        return xMin;
-        
-    }
-    
-    /**
-     * Get the maximum X value
-     * @return xMax
-     */
-    public int getXmax() {
-        
-        return xMax;
-        
-    }
-    
-    /**
-     * Get the minimum Y value
-     * @return yMin
-     */
-    public int getYmin() {
-        
-        return yMin;
-        
-    }
-    
-    /**
-     * Get the maximum Y value
-     * @return yMax
-     */
-    public int getYmax() {
-        
-        return yMax;
-        
-    }
-    
-    @Override
-    public void keyPressed(KeyEvent e) {
-        
-        // Left Arrow
-        if (e.getKeyCode() == 37)
-        {
-            if (paddle.getLeft() > 0)
-            {
-                
-                paddle.setX(paddle.getX() - 15);
-                
-            } else {
-                
-                return;
-                
-            }
-            
-        } else if (e.getKeyCode() == 39) {  // Right Arrow
-            
-            if (paddle.getRight() < xMax)
-            {
-                
-                paddle.setX(paddle.getX() + 15);
-                
-            } else {
-                
-                return;
-                
-            }
-            
-        }
-        
-    }
-    
     @Override
     public void mouseClicked(MouseEvent e) {
         
         // TODO: Launch ball
+        if (!ball.isLaunched())
+        {
+            
+            ball.setXSpeed(1);
+            ball.setYSpeed(1);
+            ball.setLaunched(true);
+            
+        }
         
     }
 
     @Override
     public void mouseMoved(MouseEvent e) {
         
+        if (!ball.isLaunched())
+        {
+            
+            ball.setX(e.getX());
+            ball.setY(yMax - 65);
+            
+        }
+        
         paddle.setX(e.getX());
-        
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
         
     }
 

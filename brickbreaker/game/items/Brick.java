@@ -37,12 +37,12 @@ public class Brick {
     /**
      * Width of the brick
      */
-    public final static int width = 15;
+    public static int width = 100;
     
     /**
      * Height of the brick
      */
-    public final static int height = 5;
+    public static int height = 10;
     
     /**
      * True if the brick has been destroyed
@@ -57,6 +57,10 @@ public class Brick {
     public Brick(int x, int y) {
         
         //TODO: Code constructor
+        this.x = x;
+        this.y = y;
+        
+        this.destroyed = false;
         
     }
     
@@ -67,6 +71,12 @@ public class Brick {
     public int getHealth() {
         
         return this.health;
+        
+    }
+    
+    public void setHealth(int health) {
+        
+        this.health = health;
         
     }
     
@@ -119,27 +129,34 @@ public class Brick {
         
     }
     
+    public void setDimensions(int srcWidth, int srcHeight) {
+        
+        width = srcWidth;
+        height = srcHeight;
+        
+    }
+    
     public int getLeft() {
         
-        return (this.x - (this.width / 2));
+        return (this.x - (width / 2));
         
     }
     
     public int getRight() {
         
-        return (this.x + (this.width / 2));
+        return (this.x + (width / 2));
         
     }
     
     public int getTop() {
         
-        return (this.y - (this.height / 2));
+        return (this.y - (height / 2));
         
     }
     
     public int getBottom() {
         
-        return (this.y + (this.height / 2));
+        return (this.y + (height / 2));
         
     }
     
@@ -183,11 +200,51 @@ public class Brick {
         
     }
     
-    public boolean checkCollision(Ball ball) {
+    public void checkCollision(Ball ball) {
         
-        // TODO: Code collision for brick
-        
-        return true;
+        if (!this.isDestroyed())
+        {
+            
+            if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
+            {
+                
+                if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())
+                {
+                    
+                    ball.setXSpeed(-ball.getXSpeed());
+                    
+                    this.health -= 1;
+                    
+                    if (this.health == 0)
+                    {
+                        
+                        this.Destroy();
+                        
+                    }
+                    
+                }
+                
+            } else if (ball.getTop() == this.getBottom() || ball.getBottom() == this.getTop()) {
+                
+                if (ball.getX() >= this.getLeft() && ball.getX() <= this.getRight())
+                {
+                    
+                    ball.setYSpeed(-ball.getYSpeed());
+                    
+                    this.health -= 1;
+                    
+                    if (this.health == 0)
+                    {
+                        
+                        this.Destroy();
+                        
+                    }
+                    
+                }
+                
+            }
+                
+        }
         
     }
     

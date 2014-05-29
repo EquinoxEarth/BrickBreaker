@@ -38,6 +38,8 @@ public class Ball {
      */
     public int speed;
     
+    public boolean launched = false;
+    
     /**
      * Create a ball with the defined field values
      * @param x is the x position
@@ -195,6 +197,18 @@ public class Ball {
     public int getBottom() {
         
         return (this.y + this.radius);
+        
+    }
+    
+    public boolean isLaunched() {
+        
+        return this.launched;
+        
+    }
+    
+    public void setLaunched(boolean src) {
+        
+        this.launched = src;
         
     }
 	

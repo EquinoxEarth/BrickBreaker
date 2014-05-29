@@ -6,11 +6,9 @@
 
 package brickbreaker.game;
 
-import brickbreaker.game.items.Ball;
-import brickbreaker.game.items.Paddle;
+import brickbreaker.game.items.*;
 
 import static brickbreaker.BrickBreaker.*;
-import static brickbreaker.game.GameLevel.brickList;
 
 import java.awt.*;
 import javax.swing.*;
@@ -24,7 +22,8 @@ public class GameFrame extends JFrame {
     /**
      * The ball that is used in the game
      */
-    public static Ball ball = new Ball(320, 240, 20, 1);
+    public static Ball[] ballArray = new Ball[1];
+    public static Ball ball = new Ball(320, 240, 20, 0);
     
     /**
      * The paddle that is used in the game
@@ -74,8 +73,13 @@ public class GameFrame extends JFrame {
         final GamePanel game = new GamePanel();
         gameFrame.add(game);
         
+        // Create the first ball
+        ballArray[0] = new Ball(0, 0, 20, 0);
+        
         // Set paddle location
         paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
+        
+        GameLevel.changeLevel(1);
         
         // Animation Thread
         Thread paintThread = new Thread(new Runnable(){
@@ -86,14 +90,28 @@ public class GameFrame extends JFrame {
                 while (true)
                 {
                     
-                    // Move the ball
-                    ball.setX(ball.getX() + ball.getXSpeed());
-                    ball.setY(ball.getY() + ball.getYSpeed());
+                    // Run through the amount of balls spawned
+                    //for (Ball ball : ballArray)
+                    //{
+                    
+                        // Move the ball
+                        ball.setX(ball.getX() + ball.getXSpeed());
+                        ball.setY(ball.getY() + ball.getYSpeed());
+                        
+                        checkLines(ball, game);
+                        checkPaddle(ball);
+                        
+                        // Check for Brick Collisions
+                        for (Brick curBrick : GameLevel.brickList)
+                        {
+                            
+                            curBrick.checkCollision(ball);
+                            
+                        }
+                        
+                    //}
                     
                     Sleep(5);
-                    
-                    checkLines(ball, game);
-                    checkPaddle(ball);
                     
                     // Redraw the screen
                     game.repaint();
@@ -135,24 +153,24 @@ public class GameFrame extends JFrame {
     public static void checkLines(Ball ball, GamePanel game) {
         
         // Left and Right
-        if (ball.getLeft() <= game.getXmin())
+        if (ball.getLeft() <= xMin)
         {
             
             ball.setXSpeed(-(ball.getXSpeed()));
             
-        } else if (ball.getRight() >= game.getXmax() + 15) {
+        } else if (ball.getRight() >= xMax + 15) {
             
             ball.setXSpeed(-(ball.getXSpeed()));
             
         }
         
         // Top and Bottom
-        if (ball.getTop() <= game.getYmin())
+        if (ball.getTop() <= yMin)
         {
             
             ball.setYSpeed(-(ball.getYSpeed()));
             
-        } else if (ball.getTop() >= game.getYmax()) {
+        } else if (ball.getTop() >= yMax) {
             
             //ball.setYSpeed(-(ball.getYSpeed()));
             
@@ -229,11 +247,15 @@ public class GameFrame extends JFrame {
      */
     public static void resetBall(Ball ball) {
         
-        ball.setX(580 / 2);
-        ball.setY(660 / 2);
+        paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         
-        ball.setXSpeed(ball.speed);
-        ball.setYSpeed(ball.speed);
+        ball.setX(paddle.getX());
+        ball.setY(yMax - 65);
+        
+        ball.setXSpeed(0);
+        ball.setYSpeed(0);
+        
+        ball.setLaunched(false);
         
     }
     
