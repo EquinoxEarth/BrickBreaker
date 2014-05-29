@@ -33,11 +33,6 @@ public class Paddle {
     private boolean sticky = false;
     
     /**
-     * Speed that the paddle moves at
-     */
-    private int speed;
-    
-    /**
      * Creates a Paddle with the supplied width & height
      * @param width 
      * @param height 
