@@ -215,19 +215,27 @@ public class GameFrame extends JFrame {
                 if (ball.getX() < paddle.getX())
                 {
                     
-                    if (ball.getXSpeed() == 1)
+                    if (ball.getX() < paddle.getX() - 25)
                     {
                         
-                        ball.setXSpeed(-ball.getXSpeed());
+                        ball.setXSpeed(-2);
+                        
+                    } else {
+                        
+                        ball.setXSpeed(-1);
                         
                     }
                     
                 } else if (ball.getX() > paddle.getX()) {
                     
-                    if (ball.getXSpeed() == -1)
+                    if (ball.getX() > paddle.getX() + 25)
                     {
                         
-                        ball.setXSpeed(-ball.getXSpeed());
+                        ball.setXSpeed(2);
+                        
+                    } else {
+                        
+                        ball.setXSpeed(1);
                         
                     }
                     

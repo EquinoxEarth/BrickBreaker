@@ -84,7 +84,6 @@ public class GamePanel extends JPanel implements MouseInputListener {
         if (!ball.isLaunched())
         {
             
-            ball.setXSpeed(1);
             ball.setYSpeed(1);
             ball.setLaunched(true);
             
