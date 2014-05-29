@@ -92,4 +92,16 @@ public class Paddle {
         
     }
     
+    public boolean isSticky() {
+        
+        return this.sticky;
+        
+    }
+    
+    public void setSticky(boolean src) {
+        
+        this.sticky = src;
+        
+    }
+    
 }
