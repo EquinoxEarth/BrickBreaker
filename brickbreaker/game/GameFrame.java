@@ -28,7 +28,7 @@ public class GameFrame extends JFrame {
     /**
      * The paddle that is used in the game
      */
-    public static Paddle paddle = new Paddle(100, 10);
+    public static Paddle paddle = new Paddle(125, 10);
     
     /**
      * The amount of lives the player has
@@ -128,12 +128,16 @@ public class GameFrame extends JFrame {
             @Override
             public void run() {
                 
+                int i = 0;
+                
                 while (true)
                 {
                     
                     // TODO: Powerup code here
                     // This thread will count down the duration of the powerup in seconds, seperate from the drawing thread
-                    Sleep(100);
+                    Sleep(1000);
+                    i++;
+                    System.out.println(i + " seconds");
                     
                 }
                 
@@ -142,6 +146,7 @@ public class GameFrame extends JFrame {
         });
         
         paintThread.start();
+        powerupThread.start();
         
     }
     
@@ -212,10 +217,11 @@ public class GameFrame extends JFrame {
                 // Now, we check where the ball hit the paddle
                 // Left Side then Right Side
                 // TODO: Change how much the speed changes based on where the ball hits
-                if (ball.getX() < paddle.getX())
+                if (ball.getX() < paddle.getX() + 8 - 7)
                 {
                     
-                    if (ball.getX() < paddle.getX() - 25)
+                    // Far Left Side
+                    if (ball.getX() < paddle.getX() + 8 - 35)
                     {
                         
                         ball.setXSpeed(-2);
@@ -226,9 +232,10 @@ public class GameFrame extends JFrame {
                         
                     }
                     
-                } else if (ball.getX() > paddle.getX()) {
+                } else if (ball.getX() > paddle.getX() + 8 + 7) {
                     
-                    if (ball.getX() > paddle.getX() + 25)
+                    // Far Right Side
+                    if (ball.getX() > paddle.getX() + 8 + 35)
                     {
                         
                         ball.setXSpeed(2);
@@ -238,6 +245,10 @@ public class GameFrame extends JFrame {
                         ball.setXSpeed(1);
                         
                     }
+                    
+                } else {    // Middle of the Paddle
+                    
+                    ball.setXSpeed(0);
                     
                 }
                 
@@ -257,7 +268,7 @@ public class GameFrame extends JFrame {
         
         paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         
-        ball.setX(paddle.getX());
+        ball.setX(paddle.getX() + 10);
         ball.setY(yMax - 65);
         
         ball.setXSpeed(0);

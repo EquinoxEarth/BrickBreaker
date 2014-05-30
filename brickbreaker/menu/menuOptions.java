@@ -31,7 +31,7 @@ public class menuOptions extends javax.swing.JFrame {
     private void initComponents() {
 
         optionsPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
         backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,10 +39,10 @@ public class menuOptions extends javax.swing.JFrame {
         optionsPanel.setBackground(new java.awt.Color(0, 0, 0));
         optionsPanel.setToolTipText(null);
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 0));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("OPTIONS");
+        titleLabel.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(255, 255, 0));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("OPTIONS");
 
         backButton.setBackground(new java.awt.Color(0, 255, 255));
         backButton.setText("BACK");
@@ -59,7 +59,7 @@ public class menuOptions extends javax.swing.JFrame {
             .addGroup(optionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 318, Short.MAX_VALUE)
                     .addGroup(optionsPanelLayout.createSequentialGroup()
                         .addComponent(backButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -69,7 +69,7 @@ public class menuOptions extends javax.swing.JFrame {
             optionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionsPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 337, Short.MAX_VALUE)
                 .addComponent(backButton)
                 .addContainerGap())
@@ -133,7 +133,7 @@ public class menuOptions extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel optionsPanel;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

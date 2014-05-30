@@ -97,7 +97,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         if (!ball.isLaunched())
         {
             
-            ball.setX(e.getX());
+            ball.setX(paddle.getX() + 10);
             ball.setY(yMax - 65);
             
         }
