@@ -204,11 +204,10 @@ public class Brick {
         
         if (!this.isDestroyed())
         {
-            
-            if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
+            if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())            
             {
                 
-                if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())
+                if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
                 {
                     
                     ball.setXSpeed(-ball.getXSpeed());

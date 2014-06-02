@@ -6,15 +6,17 @@
 
 package brickbreaker.menu;
 
+import static brickbreaker.BrickBreaker.gameFrame;
+import brickbreaker.game.GameFrame;
+
 /**
  *
  * @author Cole
  */
 public class menuRules extends javax.swing.JFrame {
 
-    /**
-     * Creates new form menuRules
-     */
+    int count=0;
+
     public menuRules() {
         
         initComponents();
@@ -37,6 +39,8 @@ public class menuRules extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         rulesTextArea = new javax.swing.JTextArea();
         backButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Rules"); // NOI18N
@@ -54,19 +58,35 @@ public class menuRules extends javax.swing.JFrame {
         rulesTextArea.setEditable(false);
         rulesTextArea.setBackground(new java.awt.Color(0, 0, 0));
         rulesTextArea.setColumns(20);
+        rulesTextArea.setFont(new java.awt.Font("Monospaced", 0, 18)); // NOI18N
         rulesTextArea.setForeground(new java.awt.Color(51, 255, 0));
         rulesTextArea.setLineWrap(true);
         rulesTextArea.setRows(5);
-        rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks. Once the game starts the ball will start off in the middle of the screen and be launched in a random direction. Then you must use your mouse to move the paddle left and right to keep the ball from falling below the screen. If the ball falls below the screen then you lose 1 life and once all your lives are gone you lose the game. You will start with 3 lives.");
+        rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks on the screen.");
         rulesTextArea.setWrapStyleWord(true);
         rulesTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(rulesTextArea);
 
         backButton.setBackground(new java.awt.Color(0, 255, 255));
-        backButton.setText("BACK");
+        backButton.setText("Main Menu");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Next");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Previous");
+        jButton2.setVisible(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -77,7 +97,12 @@ public class menuRules extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(backButton)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                     .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -90,7 +115,10 @@ public class menuRules extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(backButton)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -117,6 +145,73 @@ public class menuRules extends javax.swing.JFrame {
         this.dispose();
         
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        
+        count++;
+        
+        if (count==0){
+            rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks on the screen.");
+            jButton2.setVisible(false);
+        }
+        
+        
+        if (count == 1){
+            rulesTextArea.setText("Then you must use your mouse to move the paddle left and right to "
+                    + "keep the ball from falling below the screen."); 
+            
+            jButton2.setVisible(true);            
+        }
+        
+        else if (count==2){
+            
+            rulesTextArea.setText("If the ball falls below the screen "
+                    + "then you lose 1 life and once all your lives are gone you lose the game. "
+                    + "You will start with 3 lives.");
+            
+            jButton1.setText("Start Game");
+        }
+        
+        else if (count==3){
+            
+            gameFrame = new GameFrame("Brick Breaker");
+            gameFrame.run();
+        
+            this.dispose();
+            
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       
+        count--;
+        
+        if (count==0){
+            rulesTextArea.setText("The objective of brick breaker is to get rid of all the bricks on the screen.");
+            jButton2.setVisible(false);
+        }
+        
+        
+        else if (count == 1){
+            rulesTextArea.setText("Then you must use your mouse to move the paddle left and right to "
+                    + "keep the ball from falling below the screen."); 
+            
+            jButton1.setText("Next");
+        }
+        
+        else if (count==2){
+            
+            rulesTextArea.setText("If the ball falls below the screen "
+                    + "then you lose 1 life and once all your lives are gone you lose the game. "
+                    + "You will start with 3 lives.");
+            
+            
+        }
+        
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -151,10 +246,15 @@ public class menuRules extends javax.swing.JFrame {
                 new menuRules().setVisible(true);
             }
         });
+        
+        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea rulesTextArea;
