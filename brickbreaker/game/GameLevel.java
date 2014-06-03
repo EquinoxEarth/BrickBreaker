@@ -18,17 +18,8 @@ public class GameLevel {
     
     public static Brick [] brickList;
     
-    public static int [] xPos;
-    public static int [] yPos;
-    
-    public GameLevel() {
-        
-        // Set allowable X Positions
-        // I wouldn't use a loop here, just a giant ass section of declaration and assignment.
-        
-        // Set allowable Y Positions
-        
-    }
+    public static int [] xPos = new int[] {48, 136, 224, 312, 400, 488, 576, 664, 752, 840};
+    public static int [] yPos = new int[] {};
     
     public static void changeLevel(int level) {
         
@@ -37,12 +28,17 @@ public class GameLevel {
         {
             
             // TODO: Code Levels
-            Brick[] bricks = new Brick[1];
-            bricks[0] = new Brick(300,100);
+            Brick[] bricks = new Brick[10];
+            for (int i = 0; i < bricks.length; i++)
+            {
+                
+                double rand = 1 + (int)(Math.random() * ((3 - 1) + 1));
+                
+                bricks[i] = new Brick(xPos[i], 100);
+                bricks[i].setHealth((int)rand);
+                
+            }
             
-            double rand = 1 + (int)(Math.random() * ((3 - 1) + 1));
-            
-            bricks[0].setHealth((int)rand);
             brickList = bricks;
             
         }

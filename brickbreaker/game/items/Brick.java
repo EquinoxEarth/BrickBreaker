@@ -37,12 +37,12 @@ public class Brick {
     /**
      * Width of the brick
      */
-    public static int width = 100;
+    public static int width = 80;
     
     /**
      * Height of the brick
      */
-    public static int height = 10;
+    public static int height = 25;
     
     /**
      * True if the brick has been destroyed
@@ -56,7 +56,6 @@ public class Brick {
      */
     public Brick(int x, int y) {
         
-        //TODO: Code constructor
         this.x = x;
         this.y = y;
         

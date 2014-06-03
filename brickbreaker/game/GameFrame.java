@@ -43,7 +43,7 @@ public class GameFrame extends JFrame {
     /**
      * The maximum an X value can be
      */
-    public static final int xMax = 880;
+    public static final int xMax = 894;
     
     /**
      * The minimum a Y value can be
@@ -71,7 +71,7 @@ public class GameFrame extends JFrame {
         
         // Set up Game panel
         final GamePanel game = new GamePanel();
-        gameFrame.add(game);
+        this.add(game);
         
         // Create the first ball
         ballArray[0] = new Ball(0, 0, 20, 0);
@@ -81,13 +81,13 @@ public class GameFrame extends JFrame {
         
         GameLevel.changeLevel(1);
         
-        // Animation Thread
-        Thread paintThread = new Thread(new Runnable(){
+        // Game Thread
+        Thread gameThread = new Thread(new Runnable() {
             
             @Override
             public void run() {
                 
-                while (true)
+                while(true)
                 {
                     
                     // Run through the amount of balls spawned
@@ -98,20 +98,33 @@ public class GameFrame extends JFrame {
                         ball.setX(ball.getX() + ball.getXSpeed());
                         ball.setY(ball.getY() + ball.getYSpeed());
                         
-                        checkLines(ball, game);
+                        checkLines(ball);
                         checkPaddle(ball);
+                        checkBricks();
                         
                         // Check for Brick Collisions
-                        for (Brick curBrick : GameLevel.brickList)
-                        {
-                            
-                            curBrick.checkCollision(ball);
-                            
-                        }
+                        
                         
                     //}
                     
-                    Sleep(5);
+                    Sleep(2);
+                    
+                }
+                
+            }
+            
+        });
+        
+        // Animation Thread
+        Thread paintThread = new Thread(new Runnable(){
+            
+            @Override
+            public void run() {
+                
+                while (true)
+                {
+                    
+                    Sleep(2);
                     
                     // Redraw the screen
                     game.repaint();
@@ -145,6 +158,7 @@ public class GameFrame extends JFrame {
             
         });
         
+        gameThread.start();
         paintThread.start();
         powerupThread.start();
         
@@ -155,7 +169,7 @@ public class GameFrame extends JFrame {
      * @param ball is the ball that is checked
      * @param game 
      */
-    public static void checkLines(Ball ball, GamePanel game) {
+    public void checkLines(Ball ball) {
         
         // Left and Right
         if (ball.getLeft() <= xMin)
@@ -184,14 +198,14 @@ public class GameFrame extends JFrame {
             if (lives == 0)
             {
                 
-                JOptionPane.showMessageDialog(game, "Game over!", "Brick Breaker", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Game over!", "Brick Breaker", JOptionPane.ERROR_MESSAGE);
             
                 // Ends the program
                 System.exit(0);
                 
             } else {
                 
-                JOptionPane.showMessageDialog(game, "Try Again", "Brick Breaker", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Try Again", "Brick Breaker", JOptionPane.ERROR_MESSAGE);
                 
                 resetBall(ball);
                 
@@ -205,7 +219,7 @@ public class GameFrame extends JFrame {
      * Check if the ball has hit the paddle
      * @param ball 
      */
-    public static void checkPaddle(Ball ball) {
+    public void checkPaddle(Ball ball) {
         
         // Check if the ball has hit the paddle
         if (ball.getBottom() == 618)
@@ -260,11 +274,37 @@ public class GameFrame extends JFrame {
         
     }
     
+    public void checkBricks() {
+        
+        int count = 0;
+        
+        // Check for brick collisions
+        for (Brick curBrick : GameLevel.brickList)
+        {
+            
+            curBrick.checkCollision(ball);
+            if (curBrick.isDestroyed())
+            {
+                
+                count++;
+                
+            }
+            
+        }
+        
+        if (count == GameLevel.brickList.length)
+        {
+            JOptionPane.showMessageDialog(this, "Level Complete!");
+            System.exit(0);
+        }
+        
+    }
+    
     /**
      * Resets the ball back to it's origin
      * @param ball 
      */
-    public static void resetBall(Ball ball) {
+    public void resetBall(Ball ball) {
         
         paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         
