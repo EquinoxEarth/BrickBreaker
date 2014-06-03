@@ -19,7 +19,7 @@ public class GameLevel {
     public static Brick [] brickList;
     
     public static int [] xPos = new int[] {48, 136, 224, 312, 400, 488, 576, 664, 752, 840};
-    public static int [] yPos = new int[] {};
+    public static int [] yPos = new int[] {70, 120, 170, 220};
     
     public static void changeLevel(int level) {
         
@@ -27,36 +27,29 @@ public class GameLevel {
         if (level == 1)
         {
             
+            int row = 0;
+            int column = 0;
+            
             // TODO: Code Levels
-            Brick[] bricks = new Brick[10];
+            Brick[] bricks = new Brick[40];
             for (int i = 0; i < bricks.length; i++)
             {
                 
                 double rand = 1 + (int)(Math.random() * ((3 - 1) + 1));
                 
-                bricks[i] = new Brick(xPos[i], 100);
+                bricks[i] = new Brick(xPos[row], yPos[column]);
                 bricks[i].setHealth((int)rand);
+                row++;
+                
+                if (row == 10)
+                {
+                    row = 0;
+                    column++;
+                }
                 
             }
             
             brickList = bricks;
-            
-        }
-        
-    }
-    
-    public static void setupBricks(Brick [] brickArray) {
-        
-        int x = 200;
-        int y = 200;
-        
-        for (int i = 1; i < brickArray.length; i++)
-        {
-            
-            brickArray[i].setX(x);
-            brickArray[i].setY(y);
-            x++;
-            y++;
             
         }
         
