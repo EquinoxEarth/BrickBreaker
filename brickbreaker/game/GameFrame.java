@@ -118,7 +118,7 @@ public class GameFrame extends JFrame {
         });
         
         // Animation Thread
-        Thread paintThread = new Thread(new Runnable(){
+        Thread drawThread = new Thread(new Runnable(){
             
             @Override
             public void run() {
@@ -161,7 +161,7 @@ public class GameFrame extends JFrame {
         });
         
         gameThread.start();
-        paintThread.start();
+        drawThread.start();
         powerupThread.start();
         
     }

@@ -18,8 +18,8 @@ public class GameLevel {
     
     public static Brick [] brickList;
     
-    public static int [] xPos = new int[] {48, 136, 224, 312, 400, 488, 576, 664, 752, 840};
-    public static int [] yPos = new int[] {70, 120, 170, 220};
+    public static int [] xPos = {48, 136, 224, 312, 400, 488, 576, 664, 752, 840};
+    public static int [] yPos = {70, 120, 170, 220};
     
     public static void changeLevel(int level) {
         
