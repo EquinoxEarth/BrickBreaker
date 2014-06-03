@@ -35,6 +35,8 @@ public class GameFrame extends JFrame {
      */
     public static int lives = 3;
     
+    public static int level = 1;
+    
     /**
      * The minimum an X value can be
      */
@@ -79,7 +81,7 @@ public class GameFrame extends JFrame {
         // Set paddle location
         paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         
-        GameLevel.changeLevel(1);
+        GameLevel.changeLevel(level);
         
         // Game Thread
         Thread gameThread = new Thread(new Runnable() {
@@ -166,8 +168,7 @@ public class GameFrame extends JFrame {
     
     /**
      * Checks if the ball has hit the walls of the playing field
-     * @param ball is the ball that is checked
-     * @param game 
+     * @param ball is the ball that is checked 
      */
     public void checkLines(Ball ball) {
         
@@ -281,23 +282,26 @@ public class GameFrame extends JFrame {
         // Check for brick collisions
         for (Brick curBrick : GameLevel.brickList)
         {
-            
             curBrick.checkCollision(ball);
             if (curBrick.isDestroyed())
             {
-                
                 count++;
-                
             }
-            
         }
         
         if (count == GameLevel.brickList.length)
         {
             JOptionPane.showMessageDialog(this, "Level Complete!");
-            System.exit(0);
+            level++;
+            
+            try {
+                GameLevel.changeLevel(level);
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(this, "Game Over!");
+                System.exit(0);
+            }
+            
         }
-        
     }
     
     /**
