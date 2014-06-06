@@ -199,7 +199,7 @@ public class Brick {
         
     }
     
-    public void checkCollision(Ball ball) {
+    public boolean Collide(Ball ball) {
         
         if (!this.isDestroyed())
         {
@@ -220,6 +220,8 @@ public class Brick {
                         
                     }
                     
+                    return true;
+                    
                 }
                 
             } else if (ball.getTop() == this.getBottom() || ball.getBottom() == this.getTop()) {
@@ -238,11 +240,15 @@ public class Brick {
                         
                     }
                     
+                    return true;
+                    
                 }
                 
             }
                 
         }
+        
+        return false;
         
     }
     

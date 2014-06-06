@@ -102,7 +102,7 @@ public class GameFrame extends JFrame {
                         
                         checkLines(ball);
                         checkPaddle(ball);
-                        checkBricks();
+                        checkBricks(ball);
                         
                         // Check for Brick Collisions
                         
@@ -275,14 +275,20 @@ public class GameFrame extends JFrame {
         
     }
     
-    public void checkBricks() {
+    public void checkBricks(Ball ball) {
         
         int count = 0;
         
         // Check for brick collisions
         for (Brick curBrick : GameLevel.brickList)
         {
-            curBrick.checkCollision(ball);
+            if (curBrick.Collide(ball))
+            {
+                
+                spawnPowerup(curBrick);
+                
+            }
+            
             if (curBrick.isDestroyed())
             {
                 count++;
@@ -293,15 +299,58 @@ public class GameFrame extends JFrame {
         {
             JOptionPane.showMessageDialog(this, "Level Complete!");
             level++;
+            resetBall(ball);
             
             try {
+                
                 GameLevel.changeLevel(level);
+                
             } catch (NullPointerException e) {
+                
                 JOptionPane.showMessageDialog(this, "Game Over!");
                 System.exit(0);
+                
             }
             
         }
+    }
+    
+    public void spawnPowerup(Brick brick) {
+        
+        double rand =  1 + (Math.random() * ((10 - 1) + 1));
+                
+        // 10% Chance of Spawning
+        if (rand == 0.5)
+        {
+            
+            // Spawn a Powerup
+            rand =  1 + (int)(Math.random() * ((100 - 1) + 1));
+            
+            if (rand >= 1 && rand <= 20)
+            {
+                
+                // MultiBall
+                
+            } else if (rand >= 21 && rand <= 40) {
+                
+                // Sticky Ball
+                
+            } else if (rand >= 41 && rand <= 60) {
+                
+                // Double Points
+                
+            } else if (rand >= 61 && rand <= 80) {
+                
+                // Faster Ball
+                
+            } else if (rand >= 81 && rand <= 100) {
+                
+                // Bigger Paddle?
+                
+            }
+            
+        }
+        
     }
     
     /**
