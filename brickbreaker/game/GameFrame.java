@@ -7,6 +7,7 @@
 package brickbreaker.game;
 
 import brickbreaker.game.items.*;
+import brickbreaker.menu.*;
 
 import static brickbreaker.BrickBreaker.*;
 
@@ -43,6 +44,11 @@ public class GameFrame extends JFrame {
      * Current score
      */
     public static int score = 0;
+    
+    /**
+     * Total score
+     */
+    public static int totalScore = 0;
     
     /**
      * Time that the level is played
@@ -306,6 +312,10 @@ public class GameFrame extends JFrame {
         if (count == GameLevel.brickList.length)
         {
             JOptionPane.showMessageDialog(this, "Level Complete!");
+            
+            this.setEnabled(false);
+            menuSummary summary = new menuSummary(level, score, totalScore, GameLevel.brickList.length, time);
+            
             level++;
             resetBall(ball);
             
