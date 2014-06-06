@@ -6,11 +6,11 @@
 
 package brickbreaker;
 
-import javax.swing.*;
-
+import brickbreaker.menu.*;
 import brickbreaker.game.*;
 import brickbreaker.game.items.*;
-import brickbreaker.menu.*;
+
+import javax.swing.*;
 
 /**
  *
@@ -19,9 +19,6 @@ import brickbreaker.menu.*;
 public class BrickBreaker {
     
     public static GameFrame gameFrame;
-    
-    public static final GamePanel game = new GamePanel();
-    
     
     /**
      * The ball that is used in the game
@@ -73,6 +70,10 @@ public class BrickBreaker {
      * Runs the game
      */
     public static void run() {
+        
+        // Add the game panel
+        final GamePanel game = new GamePanel();
+        gameFrame.add(game);
         
         // Create the first ball
         ballArray[0] = new Ball(0, 0, 20, 0);

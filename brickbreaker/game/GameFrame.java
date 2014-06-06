@@ -6,11 +6,6 @@
 
 package brickbreaker.game;
 
-import brickbreaker.game.items.*;
-import brickbreaker.menu.*;
-
-import static brickbreaker.BrickBreaker.*;
-
 import javax.swing.*;
 
 /**
@@ -39,7 +34,6 @@ public class GameFrame extends JFrame {
      */
     public static final int yMax = 660;
     
-    
     public GameFrame(String name) {
     
         setTitle(name);
@@ -48,9 +42,6 @@ public class GameFrame extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-        
-        // Add the game panel
-        add(game);
     
     }
     
