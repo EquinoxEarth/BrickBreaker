@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package brickbreaker.game.powerups;
+package brickbreaker.game.items;
 
 /**
  * Base class for powerups to be encountered ingame
