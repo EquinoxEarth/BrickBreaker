@@ -73,7 +73,10 @@ public class GamePanel extends JPanel implements MouseInputListener {
         g.fillRect(paddle.getLeft(), yMax - 60, paddle.getWidth(), paddle.getHeight());
         
         // Draw Lives
-        g.drawString("Lives:" + lives, 10, 25);
+        g.drawString("Lives:" + lives, this.getWidth() - 50, 25);
+        
+        // Draw Score
+        g.drawString("Score: " + score, 10, 25);
         
     }
     

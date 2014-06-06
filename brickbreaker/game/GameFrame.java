@@ -10,7 +10,6 @@ import brickbreaker.game.items.*;
 
 import static brickbreaker.BrickBreaker.*;
 
-import java.awt.*;
 import javax.swing.*;
 
 /**
@@ -35,7 +34,20 @@ public class GameFrame extends JFrame {
      */
     public static int lives = 3;
     
+    /**
+     * Current level of the game
+     */
     public static int level = 1;
+    
+    /**
+     * Current score
+     */
+    public static int score = 0;
+    
+    /**
+     * Time that the level is played
+     */
+    public static int time = 0;
     
     /**
      * The minimum an X value can be
@@ -109,7 +121,7 @@ public class GameFrame extends JFrame {
                         
                     //}
                     
-                    Sleep(2);
+                   Sleep(1);
                     
                 }
                 
@@ -126,8 +138,6 @@ public class GameFrame extends JFrame {
                 while (true)
                 {
                     
-                    Sleep(2);
-                    
                     // Redraw the screen
                     game.repaint();
                     
@@ -143,16 +153,14 @@ public class GameFrame extends JFrame {
             @Override
             public void run() {
                 
-                int i = 0;
-                
                 while (true)
                 {
                     
                     // TODO: Powerup code here
                     // This thread will count down the duration of the powerup in seconds, seperate from the drawing thread
                     Sleep(1000);
-                    i++;
-                    System.out.println(i + " seconds");
+                    time++;
+                    System.out.println(time + " seconds");
                     
                 }
                 
@@ -191,8 +199,6 @@ public class GameFrame extends JFrame {
             ball.setYSpeed(-(ball.getYSpeed()));
             
         } else if (ball.getTop() >= yMax) {
-            
-            //ball.setYSpeed(-(ball.getYSpeed()));
             
             lives -= 1;
             
@@ -285,6 +291,8 @@ public class GameFrame extends JFrame {
             if (curBrick.Collide(ball))
             {
                 
+                score += 50 * (curBrick.getHealth() + 1);
+                
                 spawnPowerup(curBrick);
                 
             }
@@ -317,10 +325,10 @@ public class GameFrame extends JFrame {
     
     public void spawnPowerup(Brick brick) {
         
-        double rand =  1 + (Math.random() * ((10 - 1) + 1));
+        int rand =  1 + (int)(Math.random() * ((10 - 1) + 1));
                 
         // 10% Chance of Spawning
-        if (rand == 0.5)
+        if (rand == 1)
         {
             
             // Spawn a Powerup
