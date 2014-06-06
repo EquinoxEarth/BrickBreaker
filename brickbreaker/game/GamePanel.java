@@ -6,7 +6,7 @@
 
 package brickbreaker.game;
 
-import static brickbreaker.game.GameFrame.*;
+import static brickbreaker.BrickBreaker.*;
 import brickbreaker.game.items.Brick;
 
 import java.awt.*;
@@ -59,7 +59,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         g.setColor(Color.white);
         
         // Horizontal Line
-        g.drawLine(xMin, yMin, xMax, yMin);
+        g.drawLine(GameFrame.xMin, GameFrame.yMin, GameFrame.xMax, GameFrame.yMin);
         
         // Draw the ball
         g.setColor(Color.red);
@@ -70,7 +70,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         g.setColor(Color.white);
         
         // Draw the paddle
-        g.fillRect(paddle.getLeft(), yMax - 60, paddle.getWidth(), paddle.getHeight());
+        g.fillRect(paddle.getLeft(), GameFrame.yMax - 60, paddle.getWidth(), paddle.getHeight());
         
         // Draw Lives
         g.drawString("Lives:" + lives, this.getWidth() - 50, 25);
@@ -101,7 +101,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         {
             
             ball.setX(paddle.getX() + 10);
-            ball.setY(yMax - 65);
+            ball.setY(GameFrame.yMax - 65);
             
         }
         

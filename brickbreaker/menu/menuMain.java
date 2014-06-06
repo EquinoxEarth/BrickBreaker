@@ -6,8 +6,9 @@
 
 package brickbreaker.menu;
 
-import brickbreaker.game.GameFrame;
+import brickbreaker.BrickBreaker;
 import static brickbreaker.BrickBreaker.*;
+import brickbreaker.game.GameFrame;
 
 /**
  *
@@ -148,7 +149,7 @@ public class menuMain extends javax.swing.JFrame {
         
         // Start the Game
         gameFrame = new GameFrame("Brick Breaker");
-        gameFrame.run();
+        BrickBreaker.run();
         
         this.dispose();
         
