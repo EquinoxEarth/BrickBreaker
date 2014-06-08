@@ -32,6 +32,11 @@ public class BrickBreaker {
     public static Paddle paddle = new Paddle(125, 10);
     
     /**
+     * Sets the speed of the game
+     */
+    public static int difficulty = 2;
+    
+    /**
      * The amount of lives the player has
      */
     public static int lives = 3;
@@ -106,7 +111,7 @@ public class BrickBreaker {
                         
                     //}
                     
-                   Sleep(1);
+                   Sleep(difficulty);
                     
                 }
                 
