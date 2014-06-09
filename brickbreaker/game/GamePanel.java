@@ -43,6 +43,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         g.setColor(Color.black);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
         
+        // Draw the Bricks
         for (Brick brickList : GameLevel.brickList) {
             
             if (!brickList.isDestroyed())
@@ -78,6 +79,13 @@ public class GamePanel extends JPanel implements MouseInputListener {
         // Draw Lives
         g.drawString("Lives: " + lives, this.getWidth() - 50, 25);
         
+        // Draw Powerup Orbs
+        if (powerup.isSpawned())
+        {
+            
+            g.drawString(powerup.getName(), powerup.getX(), powerup.getY());
+            
+        }
         
     }
     

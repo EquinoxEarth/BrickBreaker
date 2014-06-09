@@ -31,6 +31,8 @@ public class BrickBreaker {
      */
     public static Paddle paddle = new Paddle(125, 10);
     
+    public static Powerup powerup;
+    
     /**
      * Sets the speed of the game
      */

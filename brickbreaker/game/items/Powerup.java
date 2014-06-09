@@ -33,6 +33,11 @@ public class Powerup {
     protected boolean active;
     
     /**
+     * Set to true if the powerup is currently falling
+     */
+    protected boolean spawned;
+    
+    /**
      * Returns the name of the active powerup
      * @return 
      */
@@ -92,21 +97,21 @@ public class Powerup {
         
     }
     
-    /**
-     * Activates the powerup
-     */
-    public void Activate() {
+    public void setActive(boolean active) {
         
-        this.active = true;
+        this.active = active;
         
     }
     
-    /**
-     * DeActivates the powerup
-     */
-    public void deActivate() {
+    public boolean isSpawned() {
         
-        this.active = false;
+        return this.spawned;
+        
+    }
+    
+    public void setSpawned(boolean spawned) {
+        
+        this.spawned = spawned;
         
     }
     
