@@ -149,7 +149,7 @@ public class menuMain extends javax.swing.JFrame {
         
         // Start the Game
         gameFrame = new GameFrame("Brick Breaker");
-        BrickBreaker.run();
+        BrickBreaker.runGame();
         
         this.dispose();
         

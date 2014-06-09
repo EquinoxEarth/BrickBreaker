@@ -12,30 +12,20 @@ package brickbreaker.game.items;
  */
 public class Powerup {
     
-    /**
-     * Name of the powerup
-     */
-    protected String name;
+    /** Name of the powerup */
+    private String name;
     
-    /**
-     * X coordinate of the powerup as it falls
-     */
-    protected int x;
+    /** X coordinate of the powerup as it falls */
+    private int x;
     
-    /**
-     * Y coordinate of the powerup as it falls
-     */
-    protected int y;
+    /** Y coordinate of the powerup as it falls */
+    private int y;
 
-    /**
-     * Set to true if the powerup is active
-     */
-    protected boolean active;
+    /** Set to true if the powerup is active */
+    private boolean active;
     
-    /**
-     * Set to true if the powerup is currently falling
-     */
-    protected boolean spawned;
+    /** Set to true if the powerup is currently falling */
+    private boolean spawned;
     
     /**
      * Returns the name of the active powerup

@@ -78,15 +78,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         
         // Draw Lives
         g.drawString("Lives: " + lives, this.getWidth() - 50, 25);
-        
-        // Draw Powerup Orbs
-        if (powerup.isSpawned())
-        {
-            
-            g.drawString(powerup.getName(), powerup.getX(), powerup.getY());
-            
-        }
-        
+              
     }
     
     @Override

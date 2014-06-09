@@ -177,7 +177,7 @@ public class menuRules extends javax.swing.JFrame {
         else if (count==3){
             
             gameFrame = new GameFrame("Brick Breaker");
-            BrickBreaker.run();
+            BrickBreaker.runGame();
         
             this.dispose();
             

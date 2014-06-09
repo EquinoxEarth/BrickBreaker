@@ -8,34 +8,22 @@ package brickbreaker.game.items;
 
 public class Ball {
 	
-    /**
-     * X Coordinate of the ball
-     */
+    /** X Coordinate of the ball */
     private int x;
 	
-    /**
-     * Y Coordinate of the ball
-     */
+    /** Y Coordinate of the ball */
     private int y;
 	
-    /**
-     * Radius of the ball
-     */
+    /** Radius of the ball */
     private int radius;
 	
-    /**
-     * X Speed of the ball
-     */
+    /** X Speed of the ball */
     private int xSpeed;
 	
-    /**
-     * Y Speed of the ball
-     */
+    /** Y Speed of the ball */
     private int ySpeed;
     
-    /**
-     * Overall Speed of the ball
-     */
+    /** Overall Speed of the ball */
     public int speed;
     
     public boolean launched = false;

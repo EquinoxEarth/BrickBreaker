@@ -20,52 +20,32 @@ public class BrickBreaker {
     
     public static GameFrame gameFrame;
     
-    /**
-     * The ball that is used in the game
-     */
+    /** The ball that is used in the game */
     public static Ball[] ballArray = new Ball[1];
     public static Ball ball = new Ball(320, 240, 20, 0);
     
-    /**
-     * The paddle that is used in the game
-     */
+    /** The paddle that is used in the game*/
     public static Paddle paddle = new Paddle(125, 10);
     
-    public static Powerup powerup;
-    
-    /**
-     * Sets the speed of the game
-     */
+    /** Sets the speed of the game */
     public static int difficulty = 2;
     
-    /**
-     * The amount of lives the player has
-     */
+    /** The amount of lives the player has */
     public static int lives = 3;
     
-    /**
-     * Current level of the game
-     */
+    /** Current level of the game */
     public static int level = 1;
     
-    /**
-     * Current score
-     */
+    /** Current Score */
     public static int score = 0;
     
-    /**
-     * Total score
-     */
+    /** Total Score */
     public static int totalScore = 0;
     
-    /**
-     * Time that the level is played
-     */
+    /** Time that the level is played */
     public static int time = 0;
     
-    /**
-     * @param args the command line arguments
-     */
+    /** @param args the command line arguments */
     public static void main(String[] args) {
         
         // Start Menu
@@ -73,10 +53,8 @@ public class BrickBreaker {
         
     }
     
-    /**
-     * Runs the game
-     */
-    public static void run() {
+    /** Runs the game */
+    public static void runGame() {
         
         // Add the game panel
         final GamePanel game = new GamePanel();
