@@ -169,13 +169,25 @@ public class Brick {
         if (this.health == 1)
         {
             
-            return Color.green;
+            return Color.red;
             
         } else if (this.health == 2) {
             
-            return Color.blue;
+            return Color.orange;
             
         } else if (this.health == 3) {
+            
+            return Color.yellow;
+            
+        } else if (this.health == 4) {
+            
+            return Color.green;
+            
+        } else if (this.health == 5) {
+            
+            return Color.blue;
+            
+        } else if (this.health == 6) {
             
             return Color.magenta;
             

@@ -24,8 +24,6 @@ public class GamePanel extends JPanel implements MouseInputListener {
     
     public GamePanel() {
 		
-        //setSize(450,660);
-        //setBounds(0, 0, 450, 660);
         setBackground(Color.black);
         addMouseMotionListener(this);
         addMouseListener(this);
@@ -46,6 +44,7 @@ public class GamePanel extends JPanel implements MouseInputListener {
         // Draw the Bricks
         for (Brick brickList : GameLevel.brickList) {
             
+            // Check if brick is destroyed
             if (!brickList.isDestroyed())
             {
                 
@@ -90,6 +89,13 @@ public class GamePanel extends JPanel implements MouseInputListener {
             
             ball.setYSpeed(1);
             ball.setLaunched(true);
+            
+        }
+        
+        if (e.getButton() == e.BUTTON2)
+        {
+            
+            for (Brick brickList : GameLevel.brickList) { brickList.Destroy(); }
             
         }
         

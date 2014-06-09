@@ -19,11 +19,15 @@ import javax.swing.*;
 public class BrickBreaker {
     
     public static GameFrame gameFrame;
+    public static final GamePanel game = new GamePanel();
+    
+    /** The players name */
+    public static String player = null;
     
     /** The ball that is used in the game */
     public static Ball[] ballArray = new Ball[1];
     public static Ball ball = new Ball(320, 240, 20, 0);
-    
+            
     /** The paddle that is used in the game*/
     public static Paddle paddle = new Paddle(125, 10);
     
@@ -49,16 +53,21 @@ public class BrickBreaker {
     public static void main(String[] args) {
         
         // Start Menu
-        menuMain menu = new menuMain();
+        new menuMain();
         
     }
     
     /** Runs the game */
     public static void runGame() {
         
-        // Add the game panel
-        final GamePanel game = new GamePanel();
-        gameFrame.add(game);
+        // Ask for the player name
+        player = JOptionPane.showInputDialog("Enter your name");
+        if (player == null || player.equals("")) { player = "Player"; }
+        
+        System.out.print(player);
+        
+        // Start the game frame
+        gameFrame = new GameFrame(game);
         
         // Create the first ball
         ballArray[0] = new Ball(0, 0, 20, 0);
@@ -151,8 +160,7 @@ public class BrickBreaker {
     public static void checkLines(Ball ball) {
         
         // Left and Right
-        if (ball.getLeft() <= GameFrame.xMin)
-        {
+        if (ball.getLeft() <= GameFrame.xMin) {
             
             ball.setXSpeed(-(ball.getXSpeed()));
             
@@ -278,7 +286,7 @@ public class BrickBreaker {
             JOptionPane.showMessageDialog(gameFrame, "Level Complete!");
             
             gameFrame.setEnabled(false);
-            menuSummary summary = new menuSummary(level, score, totalScore, GameLevel.brickList.length, time);
+            new menuSummary(level, score, totalScore, GameLevel.brickList.length, time);
             
             level++;
             resetBall(ball);
@@ -290,6 +298,8 @@ public class BrickBreaker {
             } catch (NullPointerException e) {
                 
                 JOptionPane.showMessageDialog(gameFrame, "Game Over!");
+                
+                
                 System.exit(0);
                 
             }

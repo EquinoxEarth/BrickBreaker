@@ -6,13 +6,11 @@
 
 package brickbreaker.game;
 
-import javax.swing.*;
-
 /**
  *
  * @author Cole
  */
-public class GameFrame extends JFrame {
+public class GameFrame extends javax.swing.JFrame {
     
     /**
      * The minimum an X value can be
@@ -34,14 +32,15 @@ public class GameFrame extends JFrame {
      */
     public static final int yMax = 660;
     
-    public GameFrame(String name) {
+    public GameFrame(javax.swing.JPanel panel) {
     
-        setTitle(name);
+        setTitle("Brick Breaker");
         setSize(xMax, yMax);
         setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
+        add(panel);
     
     }
     
