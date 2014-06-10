@@ -37,21 +37,20 @@ public class menuScores extends javax.swing.JFrame {
         
         HighScore scoreList[] = new HighScore[list.size()];
         Iterator<HighScore> iter = list.iterator();
-        for (int j=0;iter.hasNext();j++) {
-            scoreList[j] = iter.next();
-        }
+        for (int j=0;iter.hasNext();j++) { scoreList[j] = iter.next(); System.out.println(iter.next().toString());}
         
         sortScores(scoreList);
         saveScores(scoreList);
         
         String x = "";
         
-        for (int i = 0; i < (scoreList.length - 1); i++) { x = x + scoreList[i].toString() + "\n"; } 
+        for (int i = 0; i < 10; i++) { x = x + scoreList[i].toString() + "\n"; } 
         
-        jTextArea2.setText(x);
+        scoreArea.setText(x);
         
     }
     
+    /** Holds the high score & the name */
     class HighScore {
         
         String name = "Player";
@@ -123,14 +122,16 @@ public class menuScores extends javax.swing.JFrame {
         PrintWriter writer = new PrintWriter("scores.txt");
         String temp;
         
-        for (int i = 0; i < (x.length - 1); i++)
+        for (int i = 0; i < 10; i++)
         {
             
             temp = x[i].toString();
             System.out.print(temp + "\n");
-            writer.println(temp + "\n");
+            writer.print(temp + "\n");
         
         }
+        
+        writer.close();
         
     }
 
@@ -149,7 +150,7 @@ public class menuScores extends javax.swing.JFrame {
         titleLabel = new javax.swing.JLabel();
         quitButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        scoreArea = new javax.swing.JTextArea();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -172,9 +173,10 @@ public class menuScores extends javax.swing.JFrame {
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        scoreArea.setEditable(false);
+        scoreArea.setColumns(20);
+        scoreArea.setRows(5);
+        jScrollPane2.setViewportView(scoreArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -182,10 +184,11 @@ public class menuScores extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
+                        .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -225,8 +228,8 @@ public class menuScores extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JButton quitButton;
+    private javax.swing.JTextArea scoreArea;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
