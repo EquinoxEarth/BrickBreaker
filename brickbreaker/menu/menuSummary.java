@@ -6,32 +6,34 @@
 
 package brickbreaker.menu;
 
+import static brickbreaker.BrickBreaker.*;
+import brickbreaker.game.GameLevel;
+
 /**
  *
  * @author Cole
  */
 public class menuSummary extends javax.swing.JFrame {
     
-    private final brickbreaker.game.GameFrame frame;
     private int total;
+    private int level;
     
     /**
      * Creates new form menuSummary
-     * @param frame 
-     * @param level 
+     * @param lvl 
      * @param score 
      * @param totalScore 
      * @param bricks 
      * @param time
      * @param noLevels 
      */
-    public menuSummary(brickbreaker.game.GameFrame frame, int level, int score, int totalScore, int bricks, int time, boolean noLevels) {
+    public menuSummary(int lvl, int score, int totalScore, int bricks, int time, boolean noLevels) {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         
-        this.frame = frame;
         total = totalScore;
+        level = lvl;
         
         levelsCompletedValueLabel.setText("" + level);
         scoreValueLabel.setText("" + score);
@@ -220,7 +222,20 @@ public class menuSummary extends javax.swing.JFrame {
 
     private void nextLevelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextLevelButtonActionPerformed
         
-        frame.setEnabled(true);
+        try {
+            
+            GameLevel.changeLevel(level);
+            
+        } catch (NullPointerException e) {
+            
+            javax.swing.JOptionPane.showMessageDialog(this, "Game over!");
+            
+            new menuScores(total);
+            
+        }
+        
+        levelDone = false;
+        gameFrame.setEnabled(true);
         this.dispose();
         
     }//GEN-LAST:event_nextLevelButtonActionPerformed

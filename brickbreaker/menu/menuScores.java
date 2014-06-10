@@ -11,7 +11,7 @@ package brickbreaker.menu;
  * @author Cole
  */
 public class menuScores extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form menuScores
      * @param totalScore
@@ -19,6 +19,64 @@ public class menuScores extends javax.swing.JFrame {
     public menuScores(int totalScore) {
         initComponents();
         setVisible(true);
+        setLocationRelativeTo(null);
+        
+        HighScore[] list;
+        
+        list = loadScores();
+        sortScores(list);
+        saveScores(list);
+        
+    }
+    
+    class HighScore {
+        
+        String name = "Player";
+        int score = 0;
+        
+        public HighScore(String name, int score) {
+            
+            this.name = name;
+            this.score = score;
+            
+        }
+        
+    }
+    
+    private static HighScore[] sortScores(HighScore[] x) {
+        
+        for (int i = 1; i < x.length; i++) {
+            
+            HighScore next = x[i];
+            // find the insertion location while moving all larger element up
+            int j = i;
+            while (j > 0 && x[j - 1].score > next.score)
+            {
+                
+                x[j] = x[j - 1];
+                j--;
+                
+            }
+            // insert the element
+            x[j] = next;
+            
+        }
+        return x;
+        
+    }
+    
+    private static HighScore[] loadScores() {
+        
+        HighScore[] x = new HighScore[20];
+        
+        return x;
+        
+    }
+    
+    private static void saveScores(HighScore[] x) {
+        
+        
+        
     }
 
     /**
@@ -107,12 +165,6 @@ public class menuScores extends javax.swing.JFrame {
         new menuMain();
         
     }//GEN-LAST:event_jButton1ActionPerformed
-    
-    public static void sortScores() {}
-    
-    public static void loadScores() {}
-    
-    public static void saveScores() {}
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

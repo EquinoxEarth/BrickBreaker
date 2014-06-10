@@ -43,6 +43,9 @@ public class BrickBreaker {
     /** Current level of the game */
     public static int level = 1;
     
+    /** True if the level is done */
+    public static boolean levelDone = false;
+    
     /** Current Score */
     public static int score = 0;
     
@@ -245,6 +248,7 @@ public class BrickBreaker {
     public static void checkBricks(Ball ball) {
         
         int count = 0;
+        boolean noLevels = false;
         
         // Check for brick collisions
         for (Brick curBrick : GameLevel.brickList)
@@ -264,27 +268,18 @@ public class BrickBreaker {
             }
         }
         
-        if (count == GameLevel.brickList.length)
+        if (count == GameLevel.brickList.length && !levelDone)
         {
-            boolean noLevels = false;
             
             JOptionPane.showMessageDialog(gameFrame, "Level Complete!");
             
             level++;
             resetBall(ball);
             
-            try {
-                
-                GameLevel.changeLevel(level);
-                
-            } catch (NullPointerException e) {
-                
-                noLevels = true;
-                
-            }
-            
             gameFrame.setEnabled(false);
-            new menuSummary(gameFrame, level, score, totalScore, GameLevel.brickList.length, time, noLevels);
+            new menuSummary(level, score, totalScore, GameLevel.brickList.length, time, noLevels);
+            
+            levelDone = true;
             
         }
     }
