@@ -47,10 +47,10 @@ public class BrickBreaker {
     public static boolean levelDone = false;
     
     /** Current Score */
-    public static int score = 0;
+    public static long score = 0;
     
     /** Total Score */
-    public static int totalScore = 0;
+    public static long totalScore = 0;
     
     /** Time that the level is played */
     public static int time = 0;

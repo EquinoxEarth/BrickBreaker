@@ -7,6 +7,7 @@
 package brickbreaker.menu;
 
 import brickbreaker.BrickBreaker;
+import static brickbreaker.BrickBreaker.level;
 
 /**
  *

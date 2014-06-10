@@ -6,6 +6,12 @@
 
 package brickbreaker.menu;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 /**
  *
  * @author Cole
@@ -14,43 +20,67 @@ public class menuScores extends javax.swing.JFrame {
     
     /**
      * Creates new form menuScores
+     * @param name 
      * @param totalScore
+     * @throws Exception
      */
-    public menuScores(int totalScore) {
+    public menuScores(String name, long totalScore) throws Exception {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
         
-        HighScore[] list;
+        ArrayList<HighScore> list = new ArrayList<>();
         
         list = loadScores();
-        sortScores(list);
-        saveScores(list);
+        HighScore temp = new HighScore(name, totalScore);
+        list.add(temp);
+        
+        HighScore scoreList[] = new HighScore[list.size()];
+        Iterator<HighScore> iter = list.iterator();
+        for (int j=0;iter.hasNext();j++) {
+            scoreList[j] = iter.next();
+        }
+        
+        sortScores(scoreList);
+        saveScores(scoreList);
+        
+        String x = "";
+        
+        for (int i = 0; i < (scoreList.length - 1); i++) { x = x + scoreList[i].toString() + "\n"; } 
+        
+        jTextArea2.setText(x);
         
     }
     
     class HighScore {
         
         String name = "Player";
-        int score = 0;
+        long score = 0;
         
-        public HighScore(String name, int score) {
+        public HighScore(String name, long score) {
             
             this.name = name;
             this.score = score;
             
         }
         
+        @Override
+        public String toString() {
+            
+            return "" + this.name + " " + this.score;
+            
+        }
+        
     }
     
-    private static HighScore[] sortScores(HighScore[] x) {
+    private HighScore[] sortScores(HighScore[] x) {
         
         for (int i = 1; i < x.length; i++) {
             
             HighScore next = x[i];
             // find the insertion location while moving all larger element up
             int j = i;
-            while (j > 0 && x[j - 1].score > next.score)
+            while (j > 0 && x[j - 1].score < next.score)
             {
                 
                 x[j] = x[j - 1];
@@ -65,17 +95,42 @@ public class menuScores extends javax.swing.JFrame {
         
     }
     
-    private static HighScore[] loadScores() {
+    private ArrayList<HighScore> loadScores() throws Exception {
         
-        HighScore[] x = new HighScore[20];
+        BufferedReader file = new BufferedReader(new FileReader("scores.txt"));
+        ArrayList<HighScore> x = new ArrayList<>();
+        String line = null;
+        
+        line = file.readLine();
+        
+        while (line != null)
+        {
+            
+            String[] split = line.split(" ");
+            HighScore temp = new HighScore(split[0], (int)Long.parseLong(split[1]));
+            x.add(temp);
+            
+            line = file.readLine();
+            
+        }
         
         return x;
         
     }
     
-    private static void saveScores(HighScore[] x) {
+    private static void saveScores(HighScore[] x) throws Exception {
         
+        PrintWriter writer = new PrintWriter("scores.txt");
+        String temp;
         
+        for (int i = 0; i < (x.length - 1); i++)
+        {
+            
+            temp = x[i].toString();
+            System.out.print(temp + "\n");
+            writer.println(temp + "\n");
+        
+        }
         
     }
 
@@ -92,7 +147,7 @@ public class menuScores extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        quitButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
 
@@ -110,10 +165,10 @@ public class menuScores extends javax.swing.JFrame {
         titleLabel.setText("High Scores");
         titleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
-        jButton1.setText("Main Menu");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        quitButton.setText("Quit");
+        quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                quitButtonActionPerformed(evt);
             }
         });
 
@@ -130,7 +185,7 @@ public class menuScores extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane2)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -141,7 +196,7 @@ public class menuScores extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -159,20 +214,19 @@ public class menuScores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void quitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitButtonActionPerformed
         
-        this.dispose();
-        new menuMain();
+        System.exit(0);
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_quitButtonActionPerformed
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JButton quitButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }

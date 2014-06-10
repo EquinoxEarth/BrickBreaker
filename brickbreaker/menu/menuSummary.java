@@ -8,6 +8,8 @@ package brickbreaker.menu;
 
 import static brickbreaker.BrickBreaker.*;
 import brickbreaker.game.GameLevel;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,7 +17,7 @@ import brickbreaker.game.GameLevel;
  */
 public class menuSummary extends javax.swing.JFrame {
     
-    private int total;
+    private long total;
     private int level;
     
     /**
@@ -27,7 +29,7 @@ public class menuSummary extends javax.swing.JFrame {
      * @param time
      * @param noLevels 
      */
-    public menuSummary(int lvl, int score, int totalScore, int bricks, int time, boolean noLevels) {
+    public menuSummary(int lvl, long score, long totalScore, int bricks, int time, boolean noLevels) {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
@@ -230,7 +232,7 @@ public class menuSummary extends javax.swing.JFrame {
             
             javax.swing.JOptionPane.showMessageDialog(this, "Game over!");
             
-            new menuScores(total);
+            scoreTime();
             
         }
         
@@ -242,10 +244,23 @@ public class menuSummary extends javax.swing.JFrame {
 
     private void endGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endGameButtonActionPerformed
         
-        new menuScores(total);
+        scoreTime();
         
     }//GEN-LAST:event_endGameButtonActionPerformed
 
+    private void scoreTime() {
+        
+        try {
+            new menuScores(player, total);
+        } catch (Exception ex) {
+            Logger.getLogger(menuSummary.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        gameFrame.dispose();
+        this.dispose();
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bricksDestroyedValueLabel;
     private javax.swing.JButton endGameButton;
