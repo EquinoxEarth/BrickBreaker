@@ -6,32 +6,40 @@
 
 package brickbreaker.menu;
 
-import static brickbreaker.BrickBreaker.*;
-
 /**
  *
  * @author Cole
  */
 public class menuSummary extends javax.swing.JFrame {
-
+    
+    private final brickbreaker.game.GameFrame frame;
+    private int total;
+    
     /**
      * Creates new form menuSummary
+     * @param frame 
      * @param level 
      * @param score 
      * @param totalScore 
      * @param bricks 
-     * @param time 
+     * @param time
+     * @param noLevels 
      */
-    public menuSummary(int level, int score, int totalScore, int bricks, int time) {
+    public menuSummary(brickbreaker.game.GameFrame frame, int level, int score, int totalScore, int bricks, int time, boolean noLevels) {
         initComponents();
         setVisible(true);
         setLocationRelativeTo(null);
+        
+        this.frame = frame;
+        total = totalScore;
         
         levelsCompletedValueLabel.setText("" + level);
         scoreValueLabel.setText("" + score);
         totalScoreValueLabel.setText("" + totalScore);
         bricksDestroyedValueLabel.setText("" + bricks);
         timeTakenValueLabel.setText("" + time);
+        
+        if (noLevels) { nextLevelButton.setVisible(false); }
         
     }
 
@@ -57,7 +65,7 @@ public class menuSummary extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         timeTakenValueLabel = new javax.swing.JLabel();
         nextLevelButton = new javax.swing.JButton();
-        quitGameButton = new javax.swing.JButton();
+        endGameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -128,10 +136,10 @@ public class menuSummary extends javax.swing.JFrame {
             }
         });
 
-        quitGameButton.setText("Quit Game");
-        quitGameButton.addActionListener(new java.awt.event.ActionListener() {
+        endGameButton.setText("End Game");
+        endGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                quitGameButtonActionPerformed(evt);
+                endGameButtonActionPerformed(evt);
             }
         });
 
@@ -159,7 +167,7 @@ public class menuSummary extends javax.swing.JFrame {
                     .addComponent(totalScoreValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(bricksDestroyedValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(timeTakenValueLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(quitGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                    .addComponent(endGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -190,7 +198,7 @@ public class menuSummary extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(nextLevelButton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(quitGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(endGameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
 
@@ -212,20 +220,20 @@ public class menuSummary extends javax.swing.JFrame {
 
     private void nextLevelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextLevelButtonActionPerformed
         
-        gameFrame.setEnabled(true);
+        frame.setEnabled(true);
         this.dispose();
         
     }//GEN-LAST:event_nextLevelButtonActionPerformed
 
-    private void quitGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitGameButtonActionPerformed
+    private void endGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_endGameButtonActionPerformed
         
-        javax.swing.JOptionPane.showMessageDialog(this, "Thanks for playing!");
-        System.exit(0);
+        new menuScores(total);
         
-    }//GEN-LAST:event_quitGameButtonActionPerformed
+    }//GEN-LAST:event_endGameButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bricksDestroyedValueLabel;
+    private javax.swing.JButton endGameButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -235,7 +243,6 @@ public class menuSummary extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel levelsCompletedValueLabel;
     private javax.swing.JButton nextLevelButton;
-    private javax.swing.JButton quitGameButton;
     private javax.swing.JLabel scoreValueLabel;
     private javax.swing.JLabel timeTakenValueLabel;
     private javax.swing.JLabel totalScoreValueLabel;

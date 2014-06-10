@@ -68,7 +68,7 @@
                       <Component id="totalScoreValueLabel" max="32767" attributes="0"/>
                       <Component id="bricksDestroyedValueLabel" max="32767" attributes="0"/>
                       <Component id="timeTakenValueLabel" max="32767" attributes="0"/>
-                      <Component id="quitGameButton" pref="124" max="32767" attributes="0"/>
+                      <Component id="endGameButton" pref="124" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="79" max="32767" attributes="0"/>
               </Group>
@@ -107,7 +107,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="nextLevelButton" pref="38" max="32767" attributes="0"/>
-                      <Component id="quitGameButton" max="32767" attributes="0"/>
+                      <Component id="endGameButton" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
@@ -260,12 +260,12 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nextLevelButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="quitGameButton">
+        <Component class="javax.swing.JButton" name="endGameButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Quit Game"/>
+            <Property name="text" type="java.lang.String" value="End Game"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quitGameButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="endGameButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

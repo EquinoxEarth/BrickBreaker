@@ -18,7 +18,10 @@ import javax.swing.*;
  */
 public class BrickBreaker {
     
+    /** The Frame for the game */
     public static GameFrame gameFrame;
+    
+    /** The Panel for the game */
     public static final GamePanel game = new GamePanel();
     
     /** The players name */
@@ -190,7 +193,7 @@ public class BrickBreaker {
     
     /**
      * Check if the ball has hit the paddle
-     * @param ball 
+     * @param ball the ball in question
      */
     public static void checkPaddle(Ball ball) {
         
@@ -235,6 +238,10 @@ public class BrickBreaker {
         
     }
     
+    /**
+     * Checks if a brick has been hit
+     * @param ball the ball in question
+     */
     public static void checkBricks(Ball ball) {
         
         int count = 0;
@@ -259,10 +266,9 @@ public class BrickBreaker {
         
         if (count == GameLevel.brickList.length)
         {
-            JOptionPane.showMessageDialog(gameFrame, "Level Complete!");
+            boolean noLevels = false;
             
-            gameFrame.setEnabled(false);
-            new menuSummary(level, score, totalScore, GameLevel.brickList.length, time);
+            JOptionPane.showMessageDialog(gameFrame, "Level Complete!");
             
             level++;
             resetBall(ball);
@@ -273,16 +279,20 @@ public class BrickBreaker {
                 
             } catch (NullPointerException e) {
                 
-                JOptionPane.showMessageDialog(null, "Game Over!");
-                
-                
-                System.exit(0);
+                noLevels = true;
                 
             }
+            
+            gameFrame.setEnabled(false);
+            new menuSummary(gameFrame, level, score, totalScore, GameLevel.brickList.length, time, noLevels);
             
         }
     }
     
+    /**
+     * Checks if a powerup should spawn or not
+     * @param brick the brick that was hit
+     */
     public static void spawnPowerup(Brick brick) {
         
         int rand =  1 + (int)(Math.random() * ((10 - 1) + 1));
