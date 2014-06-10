@@ -41,11 +41,8 @@ public class GameLevel {
                 bricks[i].setHealth((int)rand);
                 row++;
                 
-                if (row == 10)
-                {
-                    row = 0;
-                    column++;
-                }
+                if (row == 10) { row = 0; column++; }
+                
             }
             
             brickList = bricks;
@@ -62,16 +59,11 @@ public class GameLevel {
                 bricks[i].setHealth((int)rand);
                 row++;
                 
-                if (row == 10)
-                {
-                    row = 0;
-                    column++;
-                }
+                if (row == 10) { row = 0; column++; }
+                
             }
             
             brickList = bricks;
-        } else {
-            throw new NullPointerException();
-        }
+        } else throw new NullPointerException();
     }
 }

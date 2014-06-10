@@ -10,23 +10,22 @@ import static brickbreaker.BrickBreaker.*;
 import brickbreaker.game.items.Brick;
 
 import java.awt.*;
-import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import javax.swing.*;
-import javax.swing.event.MouseInputListener;
-
 
 /**
  * The frame that the game is rendered in
  * @author Cole
  */
-public class GamePanel extends JPanel implements MouseInputListener {
+public class GamePanel extends JPanel {
+    
+    private final GameListener poll = new GameListener();
     
     public GamePanel() {
 		
         setBackground(Color.black);
-        addMouseMotionListener(this);
-        addMouseListener(this);
+        addMouseMotionListener(poll);
+        addMouseListener(poll);
         setFocusable(true);
         setCursor(this.getToolkit().createCustomCursor(
             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
@@ -78,67 +77,6 @@ public class GamePanel extends JPanel implements MouseInputListener {
         // Draw Lives
         g.drawString("Lives: " + lives, this.getWidth() - 50, 25);
               
-    }
-    
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        
-        // TODO: Launch ball
-        if (!ball.isLaunched())
-        {
-            
-            ball.setYSpeed(1);
-            ball.setLaunched(true);
-            
-        }
-        
-        if (e.getButton() == e.BUTTON2)
-        {
-            
-            for (Brick brickList : GameLevel.brickList) { brickList.Destroy(); }
-            
-        }
-        
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
-        
-        if (!ball.isLaunched())
-        {
-            
-            ball.setX(paddle.getX() + 10);
-            ball.setY(GameFrame.yMax - 65);
-            
-        }
-        
-        paddle.setX(e.getX());
-        
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-        
-    }
-
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        
     }
     
 }

@@ -163,8 +163,7 @@ public class menuMain extends javax.swing.JFrame {
     private void optionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButtonActionPerformed
         
         // Open Options
-        menuOptions options = new menuOptions();
-        
+        new menuOptions();
         this.dispose();
         
     }//GEN-LAST:event_optionsButtonActionPerformed

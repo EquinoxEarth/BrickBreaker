@@ -114,13 +114,8 @@ public class BrickBreaker {
             @Override
             public void run() {
                 
-                while (true)
-                {
-                    
-                    // Redraw the screen
-                    game.repaint();
-                    
-                }
+                // Redraw the screen
+                while (true) { game.repaint(); }
                 
             }
             
@@ -159,24 +154,17 @@ public class BrickBreaker {
      */
     public static void checkLines(Ball ball) {
         
-        // Left and Right
-        if (ball.getLeft() <= GameFrame.xMin) {
-            
-            ball.setXSpeed(-(ball.getXSpeed()));
-            
-        } else if (ball.getRight() >= GameFrame.xMax + 15) {
-            
-            ball.setXSpeed(-(ball.getXSpeed()));
-            
-        }
+        // Left
+        if (ball.getLeft() <= GameFrame.xMin) { ball.setXSpeed(-(ball.getXSpeed())); }
         
-        // Top and Bottom
-        if (ball.getTop() <= GameFrame.yMin)
-        {
-            
-            ball.setYSpeed(-(ball.getYSpeed()));
-            
-        } else if (ball.getTop() >= GameFrame.yMax) {
+        // Right
+        if (ball.getRight() >= GameFrame.xMax + 15) { ball.setXSpeed(-(ball.getXSpeed())); }
+        
+        // Top
+        if (ball.getTop() <= GameFrame.yMin) { ball.setYSpeed(-(ball.getYSpeed())); }
+        
+        // Bottom
+        if (ball.getTop() >= GameFrame.yMax) {
             
             lives -= 1;
             
@@ -221,29 +209,17 @@ public class BrickBreaker {
                     
                     // Far Left Side
                     if (ball.getX() < paddle.getX() + 8 - 35)
-                    {
-                        
                         ball.setXSpeed(-2);
-                        
-                    } else {
-                        
+                    else
                         ball.setXSpeed(-1);
-                        
-                    }
                     
                 } else if (ball.getX() > paddle.getX() + 8 + 7) {
                     
                     // Far Right Side
                     if (ball.getX() > paddle.getX() + 8 + 35)
-                    {
-                        
                         ball.setXSpeed(2);
-                        
-                    } else {
-                        
+                    else
                         ball.setXSpeed(1);
-                        
-                    }
                     
                 } else {    // Middle of the Paddle
                     
@@ -297,7 +273,7 @@ public class BrickBreaker {
                 
             } catch (NullPointerException e) {
                 
-                JOptionPane.showMessageDialog(gameFrame, "Game Over!");
+                JOptionPane.showMessageDialog(null, "Game Over!");
                 
                 
                 System.exit(0);

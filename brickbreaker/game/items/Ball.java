@@ -52,152 +52,88 @@ public class Ball {
      * Returns the balls X coordinate
      * @return 
      */
-    public int getX() {
-        
-        return this.x;
-        
-    }
+    public int getX() { return this.x; }
     
     /**
      * Sets the balls X coordinate
      * @param x 
      */
-    public void setX(int x) {
-        
-        this.x = x;
-        
-    }
+    public void setX(int x) { this.x = x; }
     
     /**
      * Returns the balls Y coordinate
      * @return 
      */
-    public int getY() {
-        
-        return this.y;
-        
-    }
+    public int getY() { return this.y; }
     
     /**
      * Sets the balls Y coordinate
      * @param y 
      */
-    public void setY(int y) {
-        
-        this.y = y;
-        
-    }
+    public void setY(int y) { this.y = y; }
     
     /**
      * Returns the balls radius
      * @return 
      */
-    public int getRadius() {
-        
-        return this.radius;
-        
-    }
+    public int getRadius() { return this.radius; }
     
     /**
      * Sets the balls radius
      * @param radius 
      */
-    public void setRadius(int radius) {
-        
-        this.radius = radius;
-        
-    }
+    public void setRadius(int radius) { this.radius = radius; }
     
     /**
      * Returns the balls X Speed factor
      * @return 
      */
-    public int getXSpeed() {
-        
-        return this.xSpeed;
-        
-    }
+    public int getXSpeed() { return this.xSpeed; }
     
     /**
      * Sets the balls X Speed factor
      * @param speed 
      */
-    public void setXSpeed(int speed) {
-        
-        this.xSpeed = speed;
-        
-    }
+    public void setXSpeed(int speed) { this.xSpeed = speed; }
     
     /**
      * Returns the balls Y Speed factor
      * @return 
      */
-    public int getYSpeed() {
-        
-        return this.ySpeed;
-        
-    }
+    public int getYSpeed() { return this.ySpeed; }
     
     /**
      * Sets the balls Y Speed factor
      * @param speed 
      */
-    public void setYSpeed(int speed) {
-        
-        this.ySpeed = speed;
-        
-    }
+    public void setYSpeed(int speed) { this.ySpeed = speed; }
     
     /**
      * Return the left side of the ball
      * @return 
      */
-    public int getLeft() {
-        
-        return (this.x - this.radius);
-        
-    }
+    public int getLeft() { return (this.x - this.radius); }
     
     /**
      * Return the right side of the ball
      * @return 
      */
-    public int getRight() {
-        
-        return (this.x + this.radius);
-        
-    }
+    public int getRight() { return (this.x + this.radius); }
     
     /**
      * Return the top of the ball
      * @return 
      */
-    public int getTop() {
-        
-        return (this.y - this.radius);
-        
-    }
+    public int getTop() { return (this.y - this.radius); }
     
     /**
      * Return the bottom of the ball
      * @return 
      */
-    public int getBottom() {
-        
-        return (this.y + this.radius);
-        
-    }
+    public int getBottom() { return (this.y + this.radius); }
     
-    public boolean isLaunched() {
-        
-        return this.launched;
-        
-    }
+    public boolean isLaunched() { return this.launched; }
     
-    public void setLaunched(boolean src) {
-        
-        this.launched = src;
-        
-    }
+    public void setLaunched(boolean src) { this.launched = src; }
 	
 }
