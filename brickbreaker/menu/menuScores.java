@@ -43,7 +43,7 @@ public class menuScores extends javax.swing.JFrame {
         
         // Create a string with all of the high scores
         String x = "";
-        for (int i = 0; i < 20; i++) { x = x + list[i].toString() + "\n"; } 
+        for (int i = 0; i < 20; i++) { x = x + (i + 1) + ":\t" + list[i].toString() + "\n"; } 
         
         // Add the string to the text area
         scoreArea.setText(x);
@@ -146,7 +146,6 @@ public class menuScores extends javax.swing.JFrame {
             {
                 
                 temp = x[i].toString();
-                System.out.print(temp + "\n");
                 writer.print(temp + "\n");
                 
             }

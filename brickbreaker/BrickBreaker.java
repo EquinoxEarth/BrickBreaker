@@ -70,8 +70,6 @@ public class BrickBreaker {
         player = JOptionPane.showInputDialog("Enter your name");
         if (player == null || player.equals("")) { player = "Player"; }
         
-        System.out.print(player);
-        
         // Start the game frame
         gameFrame = new GameFrame(game);
         
