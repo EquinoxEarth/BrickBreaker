@@ -29,23 +29,23 @@ public class menuScores extends javax.swing.JFrame {
         setVisible(true);
         setLocationRelativeTo(null);
         
-        ArrayList<HighScore> list = new ArrayList<>();
+        // Create the list of high scores
+        HighScore[] list;
         
+        // Load the scores from the text file
+        // & add the existing score to the array
         list = loadScores();
         HighScore temp = new HighScore(name, totalScore);
-        list.add(temp);
+        list[20] = temp;
+
+        sortScores(list);
+        saveScores(list);
         
-        HighScore scoreList[] = new HighScore[list.size()];
-        Iterator<HighScore> iter = list.iterator();
-        for (int j=0;iter.hasNext();j++) { scoreList[j] = iter.next(); System.out.println(iter.next().toString());}
-        
-        sortScores(scoreList);
-        saveScores(scoreList);
-        
+        // Create a string with all of the high scores
         String x = "";
+        for (int i = 0; i < 20; i++) { x = x + list[i].toString() + "\n"; } 
         
-        for (int i = 0; i < 10; i++) { x = x + scoreList[i].toString() + "\n"; } 
-        
+        // Add the string to the text area
         scoreArea.setText(x);
         
     }
@@ -56,6 +56,7 @@ public class menuScores extends javax.swing.JFrame {
         String name = "Player";
         long score = 0;
         
+        /** Creates a new HighScore with the defined name and score */
         public HighScore(String name, long score) {
             
             this.name = name;
@@ -72,12 +73,17 @@ public class menuScores extends javax.swing.JFrame {
         
     }
     
+    /**
+     * Uses the insertion sorting method to sort the high scores from highest to lowest
+     * @param x the array of High Scores to be sorted
+     * @return the sorted array of High Scores
+     */
     private HighScore[] sortScores(HighScore[] x) {
         
         for (int i = 1; i < x.length; i++) {
             
             HighScore next = x[i];
-            // find the insertion location while moving all larger element up
+            // Find the insertion location while moving all larger elements up
             int j = i;
             while (j > 0 && x[j - 1].score < next.score)
             {
@@ -86,7 +92,7 @@ public class menuScores extends javax.swing.JFrame {
                 j--;
                 
             }
-            // insert the element
+            // Insert the element
             x[j] = next;
             
         }
@@ -94,22 +100,31 @@ public class menuScores extends javax.swing.JFrame {
         
     }
     
-    private ArrayList<HighScore> loadScores() throws Exception {
+    /**
+     * Load the high scores from the text file
+     * @return the array of high scores loaded from the file
+     * @throws Exception 
+     */
+    private HighScore[] loadScores() throws Exception {
         
         BufferedReader file = new BufferedReader(new FileReader("scores.txt"));
-        ArrayList<HighScore> x = new ArrayList<>();
-        String line = null;
+        HighScore[] x = new HighScore[21];
+        String line;
+        int i = 0;
         
         line = file.readLine();
         
         while (line != null)
         {
             
+            // Split the loaded string around the space
             String[] split = line.split(" ");
             HighScore temp = new HighScore(split[0], (int)Long.parseLong(split[1]));
-            x.add(temp);
+            x[i] = temp;
             
+            // Read the next line
             line = file.readLine();
+            i++;
             
         }
         
@@ -117,21 +132,25 @@ public class menuScores extends javax.swing.JFrame {
         
     }
     
+    /**
+     * Save all loaded high scores to the text file
+     * @param x
+     * @throws Exception 
+     */
     private static void saveScores(HighScore[] x) throws Exception {
         
-        PrintWriter writer = new PrintWriter("scores.txt");
-        String temp;
-        
-        for (int i = 0; i < 10; i++)
-        {
+        try (PrintWriter writer = new PrintWriter("scores.txt")) {
+            String temp;
             
-            temp = x[i].toString();
-            System.out.print(temp + "\n");
-            writer.print(temp + "\n");
-        
+            for (int i = 0; i < 20; i++)
+            {
+                
+                temp = x[i].toString();
+                System.out.print(temp + "\n");
+                writer.print(temp + "\n");
+                
+            }
         }
-        
-        writer.close();
         
     }
 

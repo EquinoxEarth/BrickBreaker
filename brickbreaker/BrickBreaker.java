@@ -257,6 +257,7 @@ public class BrickBreaker {
             {
                 
                 score += 50 * (curBrick.getHealth() + 1);
+                totalScore += 50 * (curBrick.getHealth() + 1);
                 
                 spawnPowerup(curBrick);
                 
@@ -280,6 +281,7 @@ public class BrickBreaker {
             new menuSummary(level, score, totalScore, GameLevel.brickList.length, time, noLevels);
             
             levelDone = true;
+            score = 0;
             
         }
     }

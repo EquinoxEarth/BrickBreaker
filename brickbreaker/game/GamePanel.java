@@ -72,7 +72,7 @@ public class GamePanel extends JPanel {
         g.fillRect(paddle.getLeft(), GameFrame.yMax - 60, paddle.getWidth(), paddle.getHeight());
         
         // Draw Score
-        g.drawString("Score: " + score, 10, 25);
+        g.drawString("Score: " + score + " (" + totalScore + ")", 10, 25);
         
         // Draw Lives
         g.drawString("Lives: " + lives, this.getWidth() - 50, 25);
