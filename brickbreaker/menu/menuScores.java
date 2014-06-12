@@ -9,14 +9,29 @@ package brickbreaker.menu;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 /**
  *
  * @author Cole
  */
 public class menuScores extends javax.swing.JFrame {
+    
+    /**
+     * Creates new form menuScores
+     * @throws Exception 
+     */
+    public menuScores() throws Exception {
+        
+        initComponents();
+        setVisible(true);
+        setLocationRelativeTo(null);
+        
+        HighScore[] list;
+        
+        list = loadScores();
+        stringScores(list);
+        
+    }
     
     /**
      * Creates new form menuScores
@@ -41,12 +56,7 @@ public class menuScores extends javax.swing.JFrame {
         sortScores(list);
         saveScores(list);
         
-        // Create a string with all of the high scores
-        String x = "";
-        for (int i = 0; i < 20; i++) { x = x + (i + 1) + ":\t" + list[i].toString() + "\n"; } 
-        
-        // Add the string to the text area
-        scoreArea.setText(x);
+        stringScores(list);
         
     }
     
@@ -70,6 +80,17 @@ public class menuScores extends javax.swing.JFrame {
             return "" + this.name + " " + this.score;
             
         }
+        
+    }
+    
+    private void stringScores(HighScore[] x) {
+        
+        // Create a string with all of the high scores
+        String y = "";
+        for (int i = 0; i < 20; i++) { y = y + (i + 1) + ":\t\t" + x[i].name + "\t\t" + x[i].score + "\n"; } 
+        
+        // Add the string to the text area
+        scoreArea.setText(y);
         
     }
     
@@ -179,7 +200,7 @@ public class menuScores extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        titleLabel.setForeground(new java.awt.Color(0, 255, 0));
+        titleLabel.setForeground(new java.awt.Color(255, 255, 0));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("High Scores");
         titleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
@@ -194,6 +215,7 @@ public class menuScores extends javax.swing.JFrame {
         scoreArea.setEditable(false);
         scoreArea.setColumns(20);
         scoreArea.setRows(5);
+        scoreArea.setTabSize(4);
         jScrollPane2.setViewportView(scoreArea);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -203,11 +225,10 @@ public class menuScores extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 166, Short.MAX_VALUE)
-                        .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(titleLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(quitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -215,7 +236,7 @@ public class menuScores extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 342, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(quitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())

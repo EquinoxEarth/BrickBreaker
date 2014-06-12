@@ -65,7 +65,7 @@
                   <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="2" attributes="0">
                       <Component id="exitButton" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
-                      <Component id="optionsButton" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
+                      <Component id="scoresButton" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
                       <Component id="rulesButton" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
                       <Component id="startButton" alignment="2" min="-2" pref="108" max="-2" attributes="0"/>
                   </Group>
@@ -83,7 +83,7 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="rulesButton" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  <Component id="optionsButton" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="scoresButton" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="exitButton" min="-2" pref="35" max="-2" attributes="0"/>
                   <EmptySpace pref="46" max="32767" attributes="0"/>
@@ -126,15 +126,15 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rulesButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="optionsButton">
+        <Component class="javax.swing.JButton" name="scoresButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="OPTIONS"/>
+            <Property name="text" type="java.lang.String" value="SCORES"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="optionsButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="scoresButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="exitButton">

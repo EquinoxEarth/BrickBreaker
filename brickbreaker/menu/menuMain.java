@@ -7,7 +7,8 @@
 package brickbreaker.menu;
 
 import brickbreaker.BrickBreaker;
-import static brickbreaker.BrickBreaker.level;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,7 +40,7 @@ public class menuMain extends javax.swing.JFrame {
         titleLabel = new javax.swing.JLabel();
         startButton = new javax.swing.JButton();
         rulesButton = new javax.swing.JButton();
-        optionsButton = new javax.swing.JButton();
+        scoresButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,11 +75,11 @@ public class menuMain extends javax.swing.JFrame {
             }
         });
 
-        optionsButton.setBackground(new java.awt.Color(255, 255, 0));
-        optionsButton.setText("OPTIONS");
-        optionsButton.addActionListener(new java.awt.event.ActionListener() {
+        scoresButton.setBackground(new java.awt.Color(255, 255, 0));
+        scoresButton.setText("SCORES");
+        scoresButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                optionsButtonActionPerformed(evt);
+                scoresButtonActionPerformed(evt);
             }
         });
 
@@ -102,7 +103,7 @@ public class menuMain extends javax.swing.JFrame {
                 .addGap(114, 114, 114)
                 .addGroup(menuPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(optionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scoresButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rulesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(startButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -117,7 +118,7 @@ public class menuMain extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(rulesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(optionsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scoresButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(46, Short.MAX_VALUE))
@@ -161,19 +162,23 @@ public class menuMain extends javax.swing.JFrame {
         
     }//GEN-LAST:event_rulesButtonActionPerformed
 
-    private void optionsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionsButtonActionPerformed
+    private void scoresButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_scoresButtonActionPerformed
         
-        // Open Options
-        new menuOptions();
+        try {
+            // Open HighScores
+            new menuScores();
+        } catch (Exception ex) {
+            Logger.getLogger(menuMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         
-    }//GEN-LAST:event_optionsButtonActionPerformed
+    }//GEN-LAST:event_scoresButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
     private javax.swing.JPanel menuPanel;
-    private javax.swing.JButton optionsButton;
     private javax.swing.JButton rulesButton;
+    private javax.swing.JButton scoresButton;
     private javax.swing.JButton startButton;
     private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
