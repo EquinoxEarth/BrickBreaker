@@ -34,13 +34,15 @@ public class GameFrame extends javax.swing.JFrame {
     
     public GameFrame(javax.swing.JPanel panel) {
     
-        setTitle("Brick Breaker");
-        setSize(xMax, yMax);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setVisible(true);
-        add(panel);
+        //generates the frame
+        
+        setTitle("Brick Breaker"); //adds the title
+        setSize(xMax, yMax); //sets the size
+        setResizable(false); //sets it so you cant resize
+        setDefaultCloseOperation(EXIT_ON_CLOSE); //ends the program when the window is closed
+        setLocationRelativeTo(null); //puts it in the middle of the screen
+        setVisible(true); //makes it visible
+        add(panel); //adds the panel to the frame
     
     }
     

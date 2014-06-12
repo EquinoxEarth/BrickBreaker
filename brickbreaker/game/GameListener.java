@@ -22,7 +22,7 @@ public class GameListener implements MouseInputListener {
     public GameListener() {}
 
     @Override
-    public void mouseClicked(MouseEvent e) {
+    public void mouseClicked(MouseEvent e) { //when the mouse is clicked the ball is launched
         
         // TODO: Launch ball
         if (!ball.isLaunched())
@@ -33,7 +33,7 @@ public class GameListener implements MouseInputListener {
             
         }
         
-        if (e.getButton() == e.BUTTON2)
+        if (e.getButton() == e.BUTTON2) //destroys all the bricks if right clicked (for debugging)
             for (Brick brickList : GameLevel.brickList) { brickList.Destroy(); }
         
     }
@@ -41,7 +41,7 @@ public class GameListener implements MouseInputListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         
-        if (!ball.isLaunched())
+        if (!ball.isLaunched()) //moving the mouses moves the paddle
         {
             
             ball.setX(paddle.getX() + 10);

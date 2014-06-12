@@ -23,11 +23,11 @@ public class GamePanel extends JPanel {
     
     public GamePanel() {
 		
-        setBackground(Color.black);
-        addMouseMotionListener(poll);
-        addMouseListener(poll);
-        setFocusable(true);
-        setCursor(this.getToolkit().createCustomCursor(
+        setBackground(Color.black); //sets the background to black
+        addMouseMotionListener(poll); //adds a motion listener
+        addMouseListener(poll); //adds a mouse listener
+        setFocusable(true); //sets the foucs to the panel
+        setCursor(this.getToolkit().createCustomCursor( //sets the mouse location
             new BufferedImage(3, 3, BufferedImage.TYPE_INT_ARGB), new Point(0, 0),
             "null"));
         
