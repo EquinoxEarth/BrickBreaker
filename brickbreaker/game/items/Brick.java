@@ -148,18 +148,46 @@ public class Brick {
         
     }
     
+    /**
+     * Destroy the brick
+     */
     public void Destroy() { this.destroyed = true; }
     
+    /**
+     * Checks if the brick is destroyed
+     * @return true or false
+     */
     public boolean isDestroyed() { return this.destroyed; }
     
+    /**
+     * Checks if the brick has been hit by a ball
+     * @param ball
+     * @return 
+     */
     public boolean Collide(Ball ball) {
         
         if (!this.isDestroyed())
         {
-            if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())            
+            if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())            
             {
                 
-                if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
+                for (int i = this.getTop(); i <= this.getBottom(); i++)
+                {
+                    
+                    if (ball.getY() == i)
+                    {
+                        
+                        ball.setXSpeed(-ball.getXSpeed());
+                        this.health--;
+                        if (this.health == 0) this.Destroy();
+                        
+                        return true;
+                        
+                    }
+                    
+                }
+                
+                /*if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
                 {
                     
                     ball.setXSpeed(-ball.getXSpeed());
@@ -168,11 +196,24 @@ public class Brick {
                     
                     return true;
                     
-                }
+                }*/
                 
             } else if (ball.getTop() == this.getBottom() || ball.getBottom() == this.getTop()) {
                 
-                if (ball.getX() >= this.getLeft() && ball.getX() <= this.getRight())
+                for (int i = this.getLeft(); i <= this.getRight(); i++)
+                {
+                    
+                    if (ball.getX() == i)
+                    {
+                        ball.setYSpeed(-ball.getYSpeed());
+                        this.health--;
+                        if (this.health == 0) this.Destroy();
+                        
+                    }
+                    
+                }
+                
+                /*if (ball.getX() >= this.getLeft() && ball.getX() <= this.getRight())
                 {
                     
                     ball.setYSpeed(-ball.getYSpeed());
@@ -181,7 +222,7 @@ public class Brick {
                     
                     return true;
                     
-                }
+                }*/
                 
             }
                 

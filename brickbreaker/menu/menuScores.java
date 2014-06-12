@@ -183,28 +183,27 @@ public class menuScores extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+		// Create the Components
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         quitButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         scoreArea = new javax.swing.JTextArea();
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
+		// Set the Properties of the Frame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+		// Set the Properties of the Background Panel
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
+		// Set the Properties of the Title Label
         titleLabel.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 255, 0));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("High Scores");
         titleLabel.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255), 2));
 
+		// Set the Properties of the Quit Button
         quitButton.setText("Quit");
         quitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,12 +211,14 @@ public class menuScores extends javax.swing.JFrame {
             }
         });
 
+		// Set the Properties of the Score Text Area
         scoreArea.setEditable(false);
         scoreArea.setColumns(20);
         scoreArea.setRows(5);
         scoreArea.setTabSize(4);
         jScrollPane2.setViewportView(scoreArea);
 
+		// Set the Layout of the Panel
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -264,9 +265,7 @@ public class menuScores extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton quitButton;
     private javax.swing.JTextArea scoreArea;
     private javax.swing.JLabel titleLabel;

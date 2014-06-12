@@ -35,14 +35,16 @@ public class menuMain extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
-        menuPanel = new javax.swing.JPanel();
-        titleLabel = new javax.swing.JLabel();
-        startButton = new javax.swing.JButton();
-        rulesButton = new javax.swing.JButton();
-        scoresButton = new javax.swing.JButton();
-        exitButton = new javax.swing.JButton();
-
+		
+		// Create the Componants
+        menuPanel = new javax.swing.JPanel();		// Panel for the frame
+        titleLabel = new javax.swing.JLabel();		// Title Label
+        startButton = new javax.swing.JButton();	// Start Button
+        rulesButton = new javax.swing.JButton();	// Rules Button
+        scoresButton = new javax.swing.JButton();	// High Scores Button
+        exitButton = new javax.swing.JButton();		// Exit Button
+	
+		// Set the Properties of the frame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Main Menu");
         setAutoRequestFocus(false);
@@ -50,15 +52,18 @@ public class menuMain extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setName("Main Menu"); // NOI18N
         setResizable(false);
-
+		
+		// Set the background of the panel to black
         menuPanel.setBackground(new java.awt.Color(0, 0, 0));
         menuPanel.setToolTipText(null);
-
+		
+		// Set the Properties of the Title Label
         titleLabel.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(255, 0, 0));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("BRICK BREAKER");
-
+		
+		// Set the Properties of the Start Button
         startButton.setBackground(new java.awt.Color(255, 0, 0));
         startButton.setText("START");
         startButton.addActionListener(new java.awt.event.ActionListener() {
@@ -66,7 +71,8 @@ public class menuMain extends javax.swing.JFrame {
                 startButtonActionPerformed(evt);
             }
         });
-
+		
+		// Set the Properties of the Rules Button
         rulesButton.setBackground(new java.awt.Color(0, 255, 0));
         rulesButton.setText("RULES");
         rulesButton.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +80,8 @@ public class menuMain extends javax.swing.JFrame {
                 rulesButtonActionPerformed(evt);
             }
         });
-
+		
+		// Set the Properties of the Scores Button
         scoresButton.setBackground(new java.awt.Color(255, 255, 0));
         scoresButton.setText("SCORES");
         scoresButton.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +89,8 @@ public class menuMain extends javax.swing.JFrame {
                 scoresButtonActionPerformed(evt);
             }
         });
-
+		
+		// Set the Properties of the Exit Button
         exitButton.setBackground(new java.awt.Color(0, 255, 255));
         exitButton.setText("EXIT");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -90,7 +98,8 @@ public class menuMain extends javax.swing.JFrame {
                 exitButtonActionPerformed(evt);
             }
         });
-
+		
+		// Set the Panel Layout
         javax.swing.GroupLayout menuPanelLayout = new javax.swing.GroupLayout(menuPanel);
         menuPanel.setLayout(menuPanelLayout);
         menuPanelLayout.setHorizontalGroup(

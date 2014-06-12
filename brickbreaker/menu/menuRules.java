@@ -32,7 +32,8 @@ public class menuRules extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
+		
+		// Create the Components
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -40,20 +41,24 @@ public class menuRules extends javax.swing.JFrame {
         backButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-
+		
+		// Set the Properties of the Frame
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("Rules"); // NOI18N
         setResizable(false);
 
+		// Set the Properties of the background Panel
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setToolTipText(null);
-
+		
+		// Set the Properties of the Title Label
         titleLabel.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(51, 255, 0));
         titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         titleLabel.setText("How to Play");
         titleLabel.setToolTipText("");
-
+		
+		// Set the Properties of the Rules Text Area
         rulesTextArea.setEditable(false);
         rulesTextArea.setBackground(new java.awt.Color(0, 0, 0));
         rulesTextArea.setColumns(20);
@@ -66,6 +71,7 @@ public class menuRules extends javax.swing.JFrame {
         rulesTextArea.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jScrollPane1.setViewportView(rulesTextArea);
 
+		// Set the Properties of the Back Button
         backButton.setBackground(new java.awt.Color(0, 255, 255));
         backButton.setText("Main Menu");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -73,14 +79,16 @@ public class menuRules extends javax.swing.JFrame {
                 backButtonActionPerformed(evt);
             }
         });
-
+		
+		// Set the Properties of the Next Button
         jButton1.setText("Next");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-
+		
+		// Set the Properties of the Previous Button
         jButton2.setText("Previous");
         jButton2.setVisible(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -89,6 +97,7 @@ public class menuRules extends javax.swing.JFrame {
             }
         });
 
+		// Set the Panel Layout
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
