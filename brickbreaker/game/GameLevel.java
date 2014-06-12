@@ -46,7 +46,7 @@ public class GameLevel {
             }
             
             brickList = bricks;
-        } else if (level == 2) {
+        } else if (level == 2) { //generates the second level
             int row = 0;
             int column = 0;
             
@@ -64,6 +64,6 @@ public class GameLevel {
             }
             
             brickList = bricks;
-        } else throw new NullPointerException();
+        } else throw new NullPointerException(); //throws an exception if you pass the max level count
     }
 }

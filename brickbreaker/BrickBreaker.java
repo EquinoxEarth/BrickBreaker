@@ -332,14 +332,18 @@ public class BrickBreaker {
      */
     public static void resetBall(Ball ball) {
         
+        //puts the paddle in the middle
         paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         
+        //sets the location of the ball
         ball.setX(paddle.getX() + 10);
         ball.setY(GameFrame.yMax - 65);
         
+        //stops the ball from moving
         ball.setXSpeed(0);
         ball.setYSpeed(0);
         
+        //set launch method
         ball.setLaunched(false);
         
     }
