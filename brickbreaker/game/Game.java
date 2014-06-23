@@ -130,9 +130,13 @@ public class Game {
      * @param brick the brick that was hit
      */
     public static void spawnPowerup(Brick brick) {
+        
         int rand = 1 + (int) (Math.random() * ((10 - 1) + 1));
+        
         if (rand == 1) {
+            
             rand = 1 + (int) (Math.random() * ((100 - 1) + 1));
+            
             if (rand >= 1 && rand <= 20) {
             } else if (rand >= 21 && rand <= 40) {
             } else if (rand >= 41 && rand <= 60) {
