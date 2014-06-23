@@ -135,5 +135,12 @@ public class Ball {
     public boolean isLaunched() { return this.launched; }
     
     public void setLaunched(boolean src) { this.launched = src; }
+    
+    @Override
+    public String toString() {
+        
+        return "Ball - X: " + this.x + " Y: " + this.y;
+        
+    }
 	
 }

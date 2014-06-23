@@ -27,8 +27,6 @@ public class Game {
     /** Current Score */
     public static long score = 0;
     
-    public static Ball ball = new Ball(320, 240, 20, 0);
-    
     /** Current level of the game */
     public static int level = 1;
     
@@ -42,6 +40,7 @@ public class Game {
     public static int time = 0;
     
     /** The ball that is used in the game */
+    public static Ball ball = new Ball(320, 240, 10, 0);
     public static Ball[] ballArray = new Ball[1];
     
     /** The amount of lives the player has */
@@ -152,7 +151,7 @@ public class Game {
      */
     public static void checkPaddle(Ball ball) {
         
-        if (ball.getBottom() == 618) {
+        if (ball.getBottom() == GameFrame.yMax - 60 - paddle.getHeight() / 2) {
             
             if (ball.getRight() >= paddle.getLeft() && ball.getLeft() <= paddle.getRight()) {
                 
@@ -202,7 +201,7 @@ public class Game {
             ball.setXSpeed(-(ball.getXSpeed()));
             
         }
-        if (ball.getRight() >= GameFrame.xMax + 15) {
+        if (ball.getRight() >= GameFrame.xMax) {
             
             ball.setXSpeed(-(ball.getXSpeed()));
             
@@ -270,12 +269,14 @@ public class Game {
      * @param ball
      */
     public static void resetBall(Ball ball) {
+        
         paddle.setX((gameFrame.getWidth() / 2) - (paddle.getWidth() / 2));
         ball.setX(paddle.getX() + 10);
-        ball.setY(GameFrame.yMax - 65);
+        ball.setY(GameFrame.yMax - 75 - paddle.getHeight() / 2);
         ball.setXSpeed(0);
         ball.setYSpeed(0);
         ball.setLaunched(false);
+        
     }
 
     /**
@@ -283,11 +284,17 @@ public class Game {
      * @param ms
      */
     public static void Sleep(int ms) {
+        
         try {
+            
             Thread.sleep(ms);
+            
         } catch (InterruptedException e) {
+            
             e.printStackTrace();
+            
         }
+        
     }
     
 }

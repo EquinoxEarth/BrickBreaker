@@ -41,12 +41,14 @@ public class GameListener implements MouseInputListener, KeyListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         
-        if (!paused) {
+        if (!paused)
+        {
+            
             if (!ball.isLaunched()) //moving the mouses moves the paddle
             {
                 
                 ball.setX(paddle.getX() + 10);
-                ball.setY(GameFrame.yMax - 65);
+                ball.setY(GameFrame.yMax - 75 - paddle.getHeight() / 2);
                 
             }
             
@@ -78,7 +80,22 @@ public class GameListener implements MouseInputListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         
         if (e.getKeyCode() == KeyEvent.VK_SPACE)
-            Game.paused = !Game.paused;
+        {
+            
+            // TODO: Launch ball
+            if (!ball.isLaunched())
+            {
+                
+                ball.setYSpeed(1);
+                ball.setLaunched(true);
+                
+            }
+            
+        } else if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+            
+            paused = !paused;
+            
+        }
         
     }
 

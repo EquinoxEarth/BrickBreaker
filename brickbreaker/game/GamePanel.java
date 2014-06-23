@@ -63,8 +63,8 @@ public class GamePanel extends JPanel {
         
         // Draw the ball
         g.setColor(Color.red);
-        g.fillOval(ball.getLeft(), ball.getTop(), ball.getRadius(), ball.getRadius());
-        g.drawOval(ball.getLeft(), ball.getTop(), ball.getRadius(), ball.getRadius());
+        g.fillOval(ball.getLeft(), ball.getTop(), ball.getRadius() * 2, ball.getRadius() * 2);
+        g.drawOval(ball.getLeft(), ball.getTop(), ball.getRadius() * 2, ball.getRadius() * 2);
         
         // Outline the ball in white
         g.setColor(Color.white);

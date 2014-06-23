@@ -156,7 +156,7 @@ public class Brick {
         
         if (!this.isDestroyed())
         {
-            if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())            
+            /*if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())            
             {
                 
                 if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
@@ -180,6 +180,42 @@ public class Brick {
                     if (this.health == 0) this.Destroy();
                     
                     return true;
+                    
+                }
+                
+            }*/
+            
+            if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())            
+            {
+                
+                for (int i = this.getTop(); i <= this.getBottom(); i++)
+                {
+                      
+                    if (ball.getY() == i)
+                    {
+                        
+                        ball.setXSpeed(-ball.getXSpeed());
+                        this.health--;
+                        if (this.health == 0) this.Destroy();
+                        
+                        return true;
+                        
+                    }
+                      
+                }
+                
+            } else if (ball.getTop() == this.getBottom() || ball.getBottom() == this.getTop()) {
+                
+                for (int i = this.getLeft(); i <= this.getRight(); i++)
+                {
+                    
+                    if (ball.getX() == i)
+                    {
+                        ball.setYSpeed(-ball.getYSpeed());
+                        this.health--;
+                        if (this.health == 0) this.Destroy();
+                        
+                    }
                     
                 }
                 
