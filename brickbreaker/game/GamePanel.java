@@ -6,7 +6,7 @@
 
 package brickbreaker.game;
 
-import static brickbreaker.BrickBreaker.*;
+import static brickbreaker.game.Game.*;
 import brickbreaker.game.items.Brick;
 
 import java.awt.*;
@@ -24,6 +24,7 @@ public class GamePanel extends JPanel {
     public GamePanel() {
 		
         setBackground(Color.black); //sets the background to black
+        addKeyListener(poll);
         addMouseMotionListener(poll); //adds a motion listener
         addMouseListener(poll); //adds a mouse listener
         setFocusable(true); //sets the foucs to the panel
@@ -76,6 +77,13 @@ public class GamePanel extends JPanel {
         
         // Draw Lives
         g.drawString("Lives: " + lives, this.getWidth() - 50, 25);
+        
+        // Draw Time
+        g.drawString("" + time, this.getWidth() / 2 - ((int)(Math.log10(time)+1) * 4), 25);
+        
+        // Draw Pause Text if Paused
+        if (Game.paused)
+            g.drawString("PAUSED", this.getWidth() / 2 - 25, this.getHeight() / 2);
               
     }
     

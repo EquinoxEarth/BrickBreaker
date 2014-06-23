@@ -7,6 +7,7 @@
 package brickbreaker.menu;
 
 import brickbreaker.BrickBreaker;
+import brickbreaker.game.Game;
 
 /**
  *
@@ -183,7 +184,7 @@ public class menuRules extends javax.swing.JFrame {
         
         else if (count==3){
 
-            BrickBreaker.runGame();
+            Game.runGame();
         
             this.dispose();
             

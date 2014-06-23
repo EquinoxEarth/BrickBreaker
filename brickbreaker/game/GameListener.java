@@ -6,8 +6,7 @@
 
 package brickbreaker.game;
 
-import static brickbreaker.BrickBreaker.ball;
-import static brickbreaker.BrickBreaker.paddle;
+import static brickbreaker.game.Game.*;
 import brickbreaker.game.items.Brick;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -42,15 +41,18 @@ public class GameListener implements MouseInputListener, KeyListener {
     @Override
     public void mouseMoved(MouseEvent e) {
         
-        if (!ball.isLaunched()) //moving the mouses moves the paddle
-        {
+        if (!paused) {
+            if (!ball.isLaunched()) //moving the mouses moves the paddle
+            {
+                
+                ball.setX(paddle.getX() + 10);
+                ball.setY(GameFrame.yMax - 65);
+                
+            }
             
-            ball.setX(paddle.getX() + 10);
-            ball.setY(GameFrame.yMax - 65);
-            
-        }
+            paddle.setX(e.getX());
         
-        paddle.setX(e.getX());
+        }
         
     }
 
@@ -70,20 +72,17 @@ public class GameListener implements MouseInputListener, KeyListener {
     public void mouseDragged(MouseEvent e) {}
 
     @Override
-    public void keyTyped(KeyEvent e) {
-        
-    }
+    public void keyTyped(KeyEvent e) {}
 
     @Override
     public void keyPressed(KeyEvent e) {
+        
         if (e.getKeyCode() == KeyEvent.VK_SPACE)
-            for (Brick brickList : GameLevel.brickList) { brickList.Destroy(); }
+            Game.paused = !Game.paused;
+        
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
-        
-    }
-    
+    public void keyReleased(KeyEvent e) {}
     
 }

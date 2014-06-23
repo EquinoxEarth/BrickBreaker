@@ -7,6 +7,7 @@
 package brickbreaker.menu;
 
 import static brickbreaker.BrickBreaker.*;
+import brickbreaker.game.Game;
 import brickbreaker.game.GameLevel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +22,7 @@ public class menuSummary extends javax.swing.JFrame {
     private int level;
     
     /**
-     * Creates new form menuSummary
+     * Creates new form menuSummary with defined variables
      * @param lvl 
      * @param score 
      * @param totalScore 
@@ -236,8 +237,8 @@ public class menuSummary extends javax.swing.JFrame {
             
         }
         
-        levelDone = false;
-        gameFrame.setEnabled(true);
+        Game.levelDone = false;
+        Game.gameFrame.setEnabled(true);
         this.dispose();
         
     }//GEN-LAST:event_nextLevelButtonActionPerformed
@@ -251,12 +252,12 @@ public class menuSummary extends javax.swing.JFrame {
     private void scoreTime() {
         
         try {
-            new menuScores(player, total);
+            new menuScores(Game.player, total);
         } catch (Exception ex) {
             Logger.getLogger(menuSummary.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        gameFrame.dispose();
+        Game.gameFrame.dispose();
         this.dispose();
         
     }

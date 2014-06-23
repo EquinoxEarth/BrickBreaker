@@ -7,6 +7,7 @@
 package brickbreaker.menu;
 
 import brickbreaker.BrickBreaker;
+import brickbreaker.game.Game;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -157,7 +158,7 @@ public class menuMain extends javax.swing.JFrame {
     private void startButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startButtonActionPerformed
         
         // Start the Game
-        BrickBreaker.runGame();
+        Game.runGame();
         
         this.dispose();
         
