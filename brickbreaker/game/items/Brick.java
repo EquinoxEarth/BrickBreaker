@@ -102,7 +102,6 @@ public class Brick {
     
     public void setDimensions(int srcWidth, int srcHeight) {
         
-        //sets the width and height
         width = srcWidth;
         height = srcHeight;
         
@@ -138,7 +137,7 @@ public class Brick {
      */
     public Color getColor() {
         
-        // Checks the health of the brick and returns the corresponding color
+        // We need to check what the health of the brick is
         if (this.health == 1) return Color.red;
         else if (this.health == 2) return Color.orange;
         else if (this.health == 3) return Color.yellow;
@@ -149,83 +148,40 @@ public class Brick {
         
     }
     
-    /**
-     * Destroy the brick
-     */
     public void Destroy() { this.destroyed = true; }
     
-    /**
-     * Checks if the brick is destroyed
-     * @return true or false
-     */
     public boolean isDestroyed() { return this.destroyed; }
     
-    /**
-     * Checks if the brick has been hit by a ball
-     * @param ball
-     * @return 
-     */
     public boolean Collide(Ball ball) {
-        
-        //if the brick is not destroyed this runs
         
         if (!this.isDestroyed())
         {
-            if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())            
+            if (ball.getY() <= this.getBottom() && ball.getY() >= this.getTop())            
             {
                 
-                for (int i = this.getTop(); i <= this.getBottom(); i++)
+                if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
                 {
                     
-                    if (ball.getY() == i)
-                    {
-                        
-                        ball.setXSpeed(-ball.getXSpeed());
-                        this.health--;
-                        if (this.health == 0) this.Destroy();
-                        
-                        return true;
-                        
-                    }
-                    
-                }
-                
-                /*if (ball.getRight() == this.getLeft() || ball.getLeft() == this.getRight())
-                {
-                    
-                    ball.setXSpeed(-ball.getXSpeed()); //reverses the speed of the ball
-                    this.health --; //subtracts 1 from the health
-                    if (this.health == 0) this.Destroy(); //destroys the brick if the health is 0
+                    ball.setXSpeed(-ball.getXSpeed());
+                    this.health -= 1;
+                    if (this.health == 0) this.Destroy();
                     
                     return true;
                     
-                }*/
-                
-            } else if (ball.getTop() == this.getBottom() || ball.getBottom() == this.getTop()) { //checks the y coordinate
-                
-                for (int i = this.getLeft(); i <= this.getRight(); i++)
-                {
-                    
-                    if (ball.getX() == i)
-                    {
-                        ball.setYSpeed(-ball.getYSpeed());
-                        this.health--;
-                        if (this.health == 0) this.Destroy();
-                        
-                    }
-                    
                 }
                 
-                /*if (ball.getX() >= this.getLeft() && ball.getX() <= this.getRight())
+            } else if (ball.getTop() == this.getBottom() || ball.getBottom() == this.getTop()) {
+                
+                if (ball.getX() >= this.getLeft() && ball.getX() <= this.getRight())
                 {
                     
-                    ball.setYSpeed(-ball.getYSpeed()); //reverses the y speed
-                    this.health --; //subtracts the health
-                    if (this.health == 0) this.Destroy(); //destroys the brick
+                    ball.setYSpeed(-ball.getYSpeed());
+                    this.health -= 1;
+                    if (this.health == 0) this.Destroy();
                     
                     return true;
                     
-                }*/
+                }
                 
             }
                 

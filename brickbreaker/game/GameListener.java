@@ -9,7 +9,8 @@ package brickbreaker.game;
 import static brickbreaker.BrickBreaker.ball;
 import static brickbreaker.BrickBreaker.paddle;
 import brickbreaker.game.items.Brick;
-
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import javax.swing.event.MouseInputListener;
 
@@ -17,7 +18,7 @@ import javax.swing.event.MouseInputListener;
  *
  * @author Cole
  */
-public class GameListener implements MouseInputListener {
+public class GameListener implements MouseInputListener, KeyListener {
     
     public GameListener() {}
 
@@ -33,7 +34,7 @@ public class GameListener implements MouseInputListener {
             
         }
         
-        if (e.getButton() == e.BUTTON2) //destroys all the bricks if right clicked (for debugging)
+        if (e.getButton() == MouseEvent.BUTTON2) //destroys all the bricks if right clicked (for debugging)
             for (Brick brickList : GameLevel.brickList) { brickList.Destroy(); }
         
     }
@@ -67,6 +68,22 @@ public class GameListener implements MouseInputListener {
 
     @Override
     public void mouseDragged(MouseEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_SPACE)
+            for (Brick brickList : GameLevel.brickList) { brickList.Destroy(); }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
     
     
 }
